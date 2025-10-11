@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://klow1figj7wn"]
+
+[ext_resource type="Script" uid="uid://iu35mm22vxhi" path="res://Windows/Converse/converse_window.gd" id="1_mly6f"]
+
+[sub_resource type="Gradient" id="Gradient_c64vf"]
+colors = PackedColorArray(0.36157545, 0.36157548, 0.36157548, 1, 0.36078432, 0.36078432, 0.36078432, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h50mk"]
+gradient = SubResource("Gradient_c64vf")
+
+[node name="ConverseWindow" type="Window"]
+oversampling_override = 1.0
+position = Vector2i(7, 31)
+size = Vector2i(800, 600)
+
+[node name="ConverseWindow" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_h50mk")
+script = ExtResource("1_mly6f")
+
+[node name="CenterContainer" type="CenterContainer" parent="ConverseWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConverseWindow/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConverseWindow/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "ConverseGPT"
+
+[node name="LineEdit" type="LineEdit" parent="ConverseWindow/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="close_requested" from="." to="ConverseWindow" method="_on_converse_window_close_requested"]
+[connection signal="text_submitted" from="ConverseWindow/CenterContainer/VBoxContainer/LineEdit" to="ConverseWindow" method="_on_line_edit_text_submitted"]

@@ -11,7 +11,7 @@ gradient = SubResource("Gradient_kj3s0")
 [node name="SearchWindow" type="Window"]
 oversampling_override = 1.0
 title = "PooPooButt Search"
-position = Vector2i(7, 31)
+position = Vector2i(7, 36)
 size = Vector2i(800, 600)
 
 [node name="SearchWindow" type="TextureRect" parent="."]
@@ -111,22 +111,22 @@ bbcode_enabled = true
 text = "Give us your personal information for CASH!!!"
 fit_content = true
 
-[node name="Item3" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
+[node name="Converse" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
 layout_mode = 2
 
-[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/Item3"]
+[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/Converse"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.08267499, 0.4922912, 0.6973153, 1)
 bbcode_enabled = true
-text = "[url]Bank of PooPooButt[/url]
+text = "[url]Converse GPT[/url]
 "
 fit_content = true
 
-[node name="Description" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/Item3"]
+[node name="Description" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/Converse"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.6941206, 0.6941206, 0.6941205, 1)
 bbcode_enabled = true
-text = "Do all your banking with the best in the business!"
+text = "Talk to the latest and greatest GPUs and pawn your work off on them"
 fit_content = true
 
 [node name="Item4" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
@@ -151,3 +151,4 @@ fit_content = true
 [connection signal="pressed" from="SearchWindow/MainSearchScreen/VBoxContainer/HBoxContainer/Button" to="SearchWindow" method="_on_button_pressed"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Bank/Url" to="SearchWindow" method="_on_url_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Survey/Url" to="SearchWindow" method="_on_survey_meta_clicked"]
+[connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Converse/Url" to="SearchWindow" method="_on_converse_meta_clicked"]
