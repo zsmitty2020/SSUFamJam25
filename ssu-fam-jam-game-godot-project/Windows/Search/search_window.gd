@@ -46,3 +46,10 @@ func _on_adview_meta_clicked(meta: Variant) -> void:
 		var temp = preload("res://Windows/AdView/adview_window.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("adview")
+
+
+func _on_slotsgambling_meta_clicked(meta):
+	if GlobalData.open_tabs.find("slotsgambling")==-1:
+		var temp = preload("res://Windows/SlotsGambling/slotsgambling.tscn").instantiate()
+		get_tree().get_root().add_child(temp)
+		GlobalData.open_tabs.append("slotsgambling")

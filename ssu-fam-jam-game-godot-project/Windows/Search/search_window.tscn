@@ -165,6 +165,23 @@ bbcode_enabled = true
 text = "Ever wish you could make extra money with your rare spare time? Spend your time earning!"
 fit_content = true
 
+[node name="SlotsGambling" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
+layout_mode = 2
+
+[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/SlotsGambling"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.08235294, 0.49411765, 0.69803923, 1)
+bbcode_enabled = true
+text = "[url]High Roller Slots[/url]"
+fit_content = true
+
+[node name="Descripion" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/SlotsGambling"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.69411767, 0.69411767, 0.69411767, 1)
+bbcode_enabled = true
+text = "Come play for big money!"
+fit_content = true
+
 [connection signal="close_requested" from="." to="SearchWindow" method="_on_search_window_close_requested"]
 [connection signal="pressed" from="SearchWindow/MainSearchScreen/VBoxContainer/HBoxContainer/Button" to="SearchWindow" method="_on_button_pressed"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Bank/Url" to="SearchWindow" method="_on_url_meta_clicked"]
@@ -172,3 +189,4 @@ fit_content = true
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Converse/Url" to="SearchWindow" method="_on_converse_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/FreeJob/Url" to="SearchWindow" method="_on_freejob_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/AdView/Url" to="SearchWindow" method="_on_adview_meta_clicked"]
+[connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/SlotsGambling/Url" to="SearchWindow" method="_on_slotsgambling_meta_clicked"]
