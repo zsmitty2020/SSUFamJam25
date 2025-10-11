@@ -34,9 +34,9 @@ func _on_converse_meta_clicked(_meta: Variant) -> void:
 		GlobalData.open_tabs.append("converse")
 
 
-func _on_freejob_meta_clicked(_meta: Variant) -> void:
-	if GlobalData.open_tabs.find("freejob")==-1:
-		var temp = preload("res://Windows/FreeJob/freejob_window.tscn").instantiate()
+func _on_dryft_meta_clicked(meta: Variant) -> void:
+	if GlobalData.open_tabs.find("dryft")==-1:
+		var temp = preload("res://Windows/UberGame/uber_game.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("freejob")
 
@@ -54,9 +54,8 @@ func _on_slotsgambling_meta_clicked(_meta):
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("slotsgambling")
 
-
-func _on_dryft_meta_clicked(_meta: Variant) -> void:
-	if GlobalData.open_tabs.find("dryft")==-1:
-		var temp = preload("res://Windows/UberGame/uber_game.tscn").instantiate()
+func _on_ball_bouncer_meta_clicked(meta: Variant) -> void:
+	if GlobalData.open_tabs.find("ballbouncer")==-1:
+		var temp = preload("res://Windows/Ball_Bouncer/Ball_Bouncer.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
-		GlobalData.open_tabs.append("dryft")
+		GlobalData.open_tabs.append("ballbouncer")
