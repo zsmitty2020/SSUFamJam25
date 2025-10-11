@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhpxu325vkobw"]
 
 [ext_resource type="Texture2D" uid="uid://c704nmwmiwsf5" path="res://Desktop/Background.png" id="1_d8c33"]
-[ext_resource type="Script" uid="uid://4ys4qskdne78" path="res://Desktop/desktop.gd" id="2_kfh0y"]
+[ext_resource type="Script" path="res://Desktop/desktop.gd" id="2_kfh0y"]
 [ext_resource type="PackedScene" uid="uid://dgmi3cmk7hye3" path="res://Desktop/desktop_icons.tscn" id="2_shxmn"]
 [ext_resource type="PackedScene" uid="uid://dfp36yjnfafbp" path="res://Windows/Search/search_window.tscn" id="3_vxohe"]
 [ext_resource type="Texture2D" uid="uid://d0cen2x05xo0t" path="res://Desktop/ConsultConnorImage.png" id="4_kfh0y"]
