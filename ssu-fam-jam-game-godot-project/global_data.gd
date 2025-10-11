@@ -19,9 +19,11 @@ var num_updates = 0
 
 func _process(delta: float) -> void:
 	update_timer -= delta
+	print(update_timer)
 	if update_timer < 0:
 		num_updates += 1
-		update_timer = randf_range(30, 120*(1/num_updates))
+		update_timer = randf_range(30, max(30, 240.0*(1.0/max(1, num_updates/4.0))))
+		get_tree().get_root().add_child(preload("res://Windows/Winwoes/Winwoes.tscn").instantiate())
 	survey_timer -= delta
 	if survey_timer < 0:
 		survey_count += 3
