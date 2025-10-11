@@ -129,22 +129,22 @@ bbcode_enabled = true
 text = "Talk to the latest and greatest GPUs and pawn your work off on them"
 fit_content = true
 
-[node name="Item4" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
+[node name="FreeJob" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
 layout_mode = 2
 
-[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/Item4"]
+[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/FreeJob"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.08267499, 0.4922912, 0.6973153, 1)
 bbcode_enabled = true
-text = "[url]Bank of PooPooButt[/url]
+text = "[url]FreeJob: Freelance Work Board[/url]
 "
 fit_content = true
 
-[node name="Description" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/Item4"]
+[node name="Description" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/FreeJob"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.6941206, 0.6941206, 0.6941205, 1)
 bbcode_enabled = true
-text = "Do all your banking with the best in the business!"
+text = "Quick labor done cheap, with employers all around the world"
 fit_content = true
 
 [connection signal="close_requested" from="." to="SearchWindow" method="_on_search_window_close_requested"]
@@ -152,3 +152,4 @@ fit_content = true
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Bank/Url" to="SearchWindow" method="_on_url_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Survey/Url" to="SearchWindow" method="_on_survey_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Converse/Url" to="SearchWindow" method="_on_converse_meta_clicked"]
+[connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/FreeJob/Url" to="SearchWindow" method="_on_freejob_meta_clicked"]

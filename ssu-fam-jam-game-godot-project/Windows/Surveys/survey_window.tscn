@@ -10,6 +10,7 @@ gradient = SubResource("Gradient_rj8gn")
 
 [node name="SurveyWindow" type="Window"]
 oversampling_override = 1.0
+title = "Survey Slopper: The Scummiest Surveys on the Net!"
 position = Vector2i(7, 36)
 size = Vector2i(800, 600)
 

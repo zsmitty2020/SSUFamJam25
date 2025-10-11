@@ -32,3 +32,10 @@ func _on_converse_meta_clicked(_meta: Variant) -> void:
 		var temp = preload("res://Windows/Converse/converse_window.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("converse")
+
+
+func _on_freejob_meta_clicked(_meta: Variant) -> void:
+	if GlobalData.open_tabs.find("freejob")==-1:
+		var temp = preload("res://Windows/FreeJob/freejob_window.tscn").instantiate()
+		get_tree().get_root().add_child(temp)
+		GlobalData.open_tabs.append("freejob")
