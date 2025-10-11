@@ -60,3 +60,10 @@ func _on_dryft_meta_clicked(_meta: Variant) -> void:
 		var temp = preload("res://Windows/UberGame/uber_game.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("dryft")
+
+
+func _on_ball_bouncer_meta_clicked(meta: Variant) -> void:
+	if GlobalData.open_tabs.find("ballbouncer")==-1:
+		var temp = preload("res://Windows/Ball_Bouncer/Ball_Bouncer.tscn").instantiate()
+		get_tree().get_root().add_child(temp)
+		GlobalData.open_tabs.append("ballbouncer")
