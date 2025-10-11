@@ -10,7 +10,7 @@ gradient = SubResource("Gradient_c64vf")
 
 [node name="ConverseWindow" type="Window"]
 oversampling_override = 1.0
-position = Vector2i(7, 31)
+position = Vector2i(7, 36)
 size = Vector2i(800, 600)
 
 [node name="ConverseWindow" type="TextureRect" parent="."]
@@ -22,7 +22,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_h50mk")
 script = ExtResource("1_mly6f")
 
-[node name="CenterContainer" type="CenterContainer" parent="ConverseWindow"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ConverseWindow"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,16 +30,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ConverseWindow/CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="ConverseWindow/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConverseWindow/ScrollContainer/CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ConverseWindow/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="ConverseWindow/ScrollContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "ConverseGPT"
 
-[node name="LineEdit" type="LineEdit" parent="ConverseWindow/CenterContainer/VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="ConverseWindow/ScrollContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
 [connection signal="close_requested" from="." to="ConverseWindow" method="_on_converse_window_close_requested"]
-[connection signal="text_submitted" from="ConverseWindow/CenterContainer/VBoxContainer/LineEdit" to="ConverseWindow" method="_on_line_edit_text_submitted"]
+[connection signal="text_submitted" from="ConverseWindow/ScrollContainer/CenterContainer/VBoxContainer/LineEdit" to="ConverseWindow" method="_on_line_edit_text_submitted"]
