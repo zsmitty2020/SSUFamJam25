@@ -1,6 +1,8 @@
 extends Area2D
 
 var screen_size
+var big = rotation
+
 @export var speed = 0.75
 
 
@@ -9,9 +11,8 @@ func _on_ball_ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	print(GlobalData.balance)
-	var dx = speed * cos(deg_to_rad(rotation_degrees))
-	var dy = -1 * speed * sin(deg_to_rad(rotation_degrees))
+	var dx = speed * cos(rotation)
+	var dy = -1 * speed * sin(rotation)
 	position.x += dx
 	position.y += dy
 	if position.x > 490:
@@ -35,3 +36,4 @@ func _process(_delta: float) -> void:
 		GlobalData.balance += 0.01
 	rotation_degrees = rad_to_deg(atan2(-dy, dx))
 	position = position.clamp(Vector2.ZERO, screen_size)
+	GlobalData.balance = snappedf(GlobalData.balance,0.01)

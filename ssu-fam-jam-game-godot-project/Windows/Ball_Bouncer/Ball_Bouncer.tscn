@@ -1,13 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://rpc6ru6imsq2"]
+[gd_scene load_steps=6 format=3 uid="uid://rpc6ru6imsq2"]
 
 [ext_resource type="Script" uid="uid://875h0nybllqi" path="res://Windows/Ball_Bouncer/ball_bouncer.gd" id="1_pcvo7"]
-[ext_resource type="Script" uid="uid://bhlw0nk448fef" path="res://Windows/Ball_Bouncer/Ball.gd" id="2_vsp0x"]
-[ext_resource type="Texture2D" uid="uid://drjfpyyn3yv4h" path="res://Windows/Ball_Bouncer/Ball_Bouncer_Assets/ball.png" id="3_1r02p"]
+[ext_resource type="PackedScene" uid="uid://drohj0rpa0r08" path="res://Windows/Ball_Bouncer/ball.tscn" id="2_4tkpc"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_pcvo7"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4tkpc"]
-radius = 16.0
 
 [sub_resource type="Gradient" id="Gradient_vsp0x"]
 offsets = PackedFloat32Array(0, 0.98, 1)
@@ -20,6 +16,7 @@ gradient = SubResource("Gradient_vsp0x")
 oversampling_override = 1.0
 position = Vector2i(0, 36)
 size = Vector2i(800, 600)
+unresizable = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = -1
@@ -29,19 +26,10 @@ offset_bottom = 7.999939
 texture = SubResource("CanvasTexture_pcvo7")
 script = ExtResource("1_pcvo7")
 
-[node name="ball" type="Area2D" parent="TextureRect"]
+[node name="ball" parent="TextureRect" instance=ExtResource("2_4tkpc")]
 position = Vector2(103, 49)
-rotation = 0.64751714
-script = ExtResource("2_vsp0x")
-metadata/_edit_group_ = true
 
-[node name="ball_collision" type="CollisionShape2D" parent="TextureRect/ball"]
-rotation = 0.12042772
-shape = SubResource("CircleShape2D_4tkpc")
-
-[node name="ball_object" type="Sprite2D" parent="TextureRect/ball"]
-rotation = -0.0017453292
-texture = ExtResource("3_1r02p")
+[node name="sack" type="Node2D" parent="TextureRect"]
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 anchors_preset = -1
@@ -52,5 +40,27 @@ offset_right = 2.0
 offset_bottom = 17.399963
 texture = SubResource("GradientTexture1D_1r02p")
 
-[connection signal="close_requested" from="." to="." method="_on_ball_bouncer_close_requested"]
-[connection signal="ready" from="TextureRect/ball" to="TextureRect/ball" method="_on_ball_ready"]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 505.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 126.0
+offset_top = 230.0
+offset_right = -105.0
+offset_bottom = -339.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "big ball"
+
+[connection signal="close_requested" from="." to="TextureRect" method="_on_ball_bouncer_close_requested"]
+[connection signal="pressed" from="Control/Button" to="TextureRect" method="_on_button_pressed"]
