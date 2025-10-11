@@ -14,7 +14,14 @@ var conversed = false
 
 var adview_bank = 0
 
+var update_timer = 30
+var num_updates = 0
+
 func _process(delta: float) -> void:
+	update_timer -= delta
+	if update_timer < 0:
+		num_updates += 1
+		update_timer = randf_range(30, 120*(1/num_updates))
 	survey_timer -= delta
 	if survey_timer < 0:
 		survey_count += 3

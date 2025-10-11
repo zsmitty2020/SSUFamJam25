@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0u6elr51xgrg"]
+
+[ext_resource type="Script" uid="uid://racsx4pqvea8" path="res://Windows/Winwoes/winwoes_update.gd" id="1_vm041"]
+
+[node name="Winwoes" type="Window"]
+oversampling_override = 1.0
+
+[node name="WinwoesUpdate" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vm041")
+
+[connection signal="close_requested" from="." to="WinwoesUpdate" method="_on_winwoes_close_requested"]
