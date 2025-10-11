@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://rpc6ru6imsq2"]
+
+[ext_resource type="Script" uid="uid://875h0nybllqi" path="res://Windows/Ball_Bouncer/ball_bouncer.gd" id="1_pcvo7"]
+[ext_resource type="Script" uid="uid://bhlw0nk448fef" path="res://Windows/Ball_Bouncer/Ball.gd" id="2_vsp0x"]
+[ext_resource type="Texture2D" uid="uid://drjfpyyn3yv4h" path="res://Windows/Ball_Bouncer/Ball_Bouncer_Assets/ball.png" id="3_1r02p"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pcvo7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4tkpc"]
+radius = 16.0
+
+[sub_resource type="Gradient" id="Gradient_vsp0x"]
+offsets = PackedFloat32Array(0, 0.98, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.7938038, 0.23115706, 0.3131891, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1r02p"]
+gradient = SubResource("Gradient_vsp0x")
+
+[node name="BallBouncer" type="Window"]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+size = Vector2i(800, 600)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.01
+anchor_bottom = 0.99000007
+offset_bottom = 7.999939
+texture = SubResource("CanvasTexture_pcvo7")
+script = ExtResource("1_pcvo7")
+
+[node name="ball" type="Area2D" parent="TextureRect"]
+position = Vector2(103, 49)
+rotation = 0.64751714
+script = ExtResource("2_vsp0x")
+metadata/_edit_group_ = true
+
+[node name="ball_collision" type="CollisionShape2D" parent="TextureRect/ball"]
+rotation = 0.12042772
+shape = SubResource("CircleShape2D_4tkpc")
+
+[node name="ball_object" type="Sprite2D" parent="TextureRect/ball"]
+rotation = -0.0017453292
+texture = ExtResource("3_1r02p")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.9710001
+offset_left = 507.0
+offset_right = 2.0
+offset_bottom = 17.399963
+texture = SubResource("GradientTexture1D_1r02p")
+
+[connection signal="close_requested" from="." to="." method="_on_ball_bouncer_close_requested"]
+[connection signal="ready" from="TextureRect/ball" to="TextureRect/ball" method="_on_ball_ready"]
