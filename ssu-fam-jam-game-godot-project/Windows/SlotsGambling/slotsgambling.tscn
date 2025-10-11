@@ -19,7 +19,20 @@ oversampling_override = 1.0
 position = Vector2i(0, 36)
 size = Vector2i(800, 600)
 
-[node name="Container" type="TextureRect" parent="."]
+[node name="Container" type="Control" parent="." node_paths=PackedStringArray("slot1", "slot2", "slot3")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_15ixx")
+slot1 = NodePath("symbolSquares")
+slot2 = NodePath("symbolSquares2")
+slot3 = NodePath("symbolSquares3")
+
+[node name="BGColor" type="TextureRect" parent="Container"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,98 +42,158 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("GradientTexture1D_ug6yu")
 
-[node name="gambling main" type="Node2D" parent="Container" node_paths=PackedStringArray("slot1", "slot2", "slot3")]
-script = ExtResource("1_15ixx")
-slot1 = NodePath("symbolSquares")
-slot2 = NodePath("symbolSquares2")
-slot3 = NodePath("symbolSquares3")
+[node name="Label" type="Label" parent="Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 273.0
+offset_top = 100.0
+offset_right = -272.0
+offset_bottom = -431.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Credits: 0"
 
-[node name="symbolSquares" parent="Container/gambling main" instance=ExtResource("2_bc2yg")]
-position = Vector2(200, 300)
+[node name="Label2" type="Label" parent="Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 265.0
+offset_top = 377.0
+offset_right = -268.0
+offset_bottom = -188.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Minimum Bet: 5 Creds"
 
-[node name="symbolSquares2" parent="Container/gambling main" instance=ExtResource("2_bc2yg")]
-position = Vector2(400, 300)
+[node name="symbolSquares" parent="Container" instance=ExtResource("2_bc2yg")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 300.0
+offset_right = -600.0
+offset_bottom = -300.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="symbolSquares3" parent="Container/gambling main" instance=ExtResource("2_bc2yg")]
-position = Vector2(600, 300)
+[node name="symbolSquares2" parent="Container" instance=ExtResource("2_bc2yg")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 400.0
+offset_top = 300.0
+offset_right = -400.0
+offset_bottom = -300.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Timer" type="Timer" parent="Container/gambling main"]
+[node name="symbolSquares3" parent="Container" instance=ExtResource("2_bc2yg")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 600.0
+offset_top = 300.0
+offset_right = -200.0
+offset_bottom = -300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 425.0
+offset_bottom = -137.00037
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TenPercent" type="Button" parent="Container/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Bet 10%: 0 Creds"
+
+[node name="FiftyPercent" type="Button" parent="Container/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Bet 50%: 0 Creds"
+
+[node name="HundredPercent" type="Button" parent="Container/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Bet 100%: 0 Creds"
+
+[node name="InsertCash" type="Button" parent="Container"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_bottom = 43.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "Insert $50
+"
+
+[node name="CashOut" type="Button" parent="Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 341.0
+offset_top = 501.0
+offset_right = -341.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+disabled = true
+text = "Cash Out"
+
+[node name="Timer" type="Timer" parent="Container"]
 one_shot = true
 
-[node name="gamblingBGMusic" type="AudioStreamPlayer" parent="Container/gambling main"]
+[node name="gamblingBGMusic" type="AudioStreamPlayer" parent="Container"]
 stream = ExtResource("3_uwnka")
 volume_db = -30.0
 autoplay = true
 
-[node name="beginGambling" type="AudioStreamPlayer" parent="Container/gambling main"]
+[node name="beginGambling" type="AudioStreamPlayer" parent="Container"]
 stream = ExtResource("4_encln")
 volume_db = -30.0
 autoplay = true
 
-[node name="winSFX" type="AudioStreamPlayer" parent="Container/gambling main"]
+[node name="winSFX" type="AudioStreamPlayer" parent="Container"]
 stream = ExtResource("5_3any0")
 volume_db = -30.0
 
-[node name="loseSFX" type="AudioStreamPlayer" parent="Container/gambling main"]
+[node name="loseSFX" type="AudioStreamPlayer" parent="Container"]
 stream = ExtResource("6_jop6i")
 volume_db = -30.0
 
-[node name="slotRollSFX" type="AudioStreamPlayer" parent="Container/gambling main"]
+[node name="slotRollSFX" type="AudioStreamPlayer" parent="Container"]
 stream = ExtResource("7_1ri76")
 volume_db = -30.0
 parameters/looping = true
 
-[node name="Label" type="Label" parent="Container/gambling main"]
-offset_left = 260.0
-offset_top = 100.0
-offset_right = 537.0005
-offset_bottom = 169.00005
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "Credits: 50"
-
-[node name="TenPercent" type="Button" parent="Container/gambling main"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 110.0
-offset_top = 455.0
-offset_right = 289.001
-offset_bottom = 491.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-text = "Bet 10%: 5 Creds"
-
-[node name="FiftyPercent" type="Button" parent="Container/gambling main"]
-offset_left = 310.0
-offset_top = 455.0
-offset_right = 489.0
-offset_bottom = 491.0
-theme_override_font_sizes/font_size = 20
-text = "Bet 50%: 25 Creds"
-
-[node name="HundredPercent" type="Button" parent="Container/gambling main"]
-offset_left = 510.0
-offset_top = 455.0
-offset_right = 689.0
-offset_bottom = 491.0
-theme_override_font_sizes/font_size = 20
-text = "Bet 100%: 50 Creds"
-
-[node name="CashOut" type="Button" parent="Container/gambling main"]
-offset_left = 310.0
-offset_top = 530.0
-offset_right = 489.0
-offset_bottom = 566.0002
-theme_override_font_sizes/font_size = 20
-text = "Cash Out"
-
-[connection signal="timeout" from="Container/gambling main/Timer" to="Container/gambling main" method="_on_timer_timeout"]
-[connection signal="pressed" from="Container/gambling main/TenPercent" to="Container/gambling main" method="_on_button_pressed"]
-[connection signal="pressed" from="Container/gambling main/FiftyPercent" to="Container/gambling main" method="_on_fifty_percent_pressed"]
-[connection signal="pressed" from="Container/gambling main/HundredPercent" to="Container/gambling main" method="_on_hundred_percent_pressed"]
-[connection signal="pressed" from="Container/gambling main/CashOut" to="Container/gambling main" method="_on_cash_out_pressed"]
+[connection signal="pressed" from="Container/HBoxContainer/TenPercent" to="Container" method="_on_ten_percent_pressed"]
+[connection signal="pressed" from="Container/HBoxContainer/FiftyPercent" to="Container" method="_on_fifty_percent_pressed"]
+[connection signal="pressed" from="Container/HBoxContainer/HundredPercent" to="Container" method="_on_hundred_percent_pressed"]
+[connection signal="pressed" from="Container/InsertCash" to="Container" method="_on_insert_cash_pressed"]
+[connection signal="timeout" from="Container/Timer" to="Container" method="_on_timer_timeout"]

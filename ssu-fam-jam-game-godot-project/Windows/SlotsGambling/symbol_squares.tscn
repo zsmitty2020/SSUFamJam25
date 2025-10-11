@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://d1tgl7meeys5u" path="res://Windows/SlotsGambling/GamblingAssets/bell.png" id="4_mhp0h"]
 [ext_resource type="Texture2D" uid="uid://dm7y3jijnbq4w" path="res://Windows/SlotsGambling/GamblingAssets/bar.png" id="5_jfthy"]
 
-[node name="symbolSquares" type="Node2D" groups=["slots"]]
+[node name="symbolSquares" type="Control" groups=["slots"]]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_0rlxr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

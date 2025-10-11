@@ -1,16 +1,21 @@
-extends Node2D
+extends Control
 
 @export var slot1 := Node2D
 @export var slot2 := Node2D
 @export var slot3 := Node2D
 
 var betSize = 1
-var money = 50
+var money = 0
 var rolling = false
 var canRoll = true
 
 
 func _process(_delta):
+	if GlobalData.balance < 50:
+		$InsertCash.disabled = true
+	else:
+		$InsertCash.disabled = false
+		
 	if rolling:
 		for slot in $".".get_children():
 				if slot.is_in_group("slots"):
@@ -19,6 +24,7 @@ func _process(_delta):
 func payMoney():
 	if money >= 5:
 		money -= betSize
+		updateLabels()
 		return true
 	else:
 		print("NO MONEY! GET KICKED OUT")
@@ -71,14 +77,11 @@ func _on_timer_timeout():
 		$loseSFX.play()
 		
 	$slotRollSFX.stop()
-	$Label.text = "Credits: " + str(money)
-	$TenPercent.text = "Bet 10%: " + str(int(0.10 * money)) + " Creds"
-	$FiftyPercent.text = "Bet 50%: " + str(int(0.50 * money)) + " Creds"
-	$HundredPercent.text = "Bet 100%: " + str(money) + " Creds"
+	updateLabels()
 	print(money)
 
 
-func _on_button_pressed():
+func _on_ten_percent_pressed():
 	#10% Button
 		if canRoll:
 			betSize = int(0.10 * money)
@@ -87,6 +90,8 @@ func _on_button_pressed():
 				canRoll = false
 				rolling = true
 				$slotRollSFX.play()
+				disableButtons()
+				
 
 func _on_fifty_percent_pressed():
 	#50% Button
@@ -97,6 +102,7 @@ func _on_fifty_percent_pressed():
 				canRoll = false
 				rolling = true
 				$slotRollSFX.play()
+				disableButtons()
 
 
 func _on_hundred_percent_pressed():
@@ -108,6 +114,47 @@ func _on_hundred_percent_pressed():
 				canRoll = false
 				rolling = true
 				$slotRollSFX.play()
+				disableButtons()
+
+func updateLabels():
+	if int(0.10 * money) < 5:
+		$HBoxContainer/TenPercent.disabled = true
+	else:
+		$HBoxContainer/TenPercent.disabled = false
+	if int(0.50 * money) < 5:
+		$HBoxContainer/FiftyPercent.disabled = true
+	else:
+		$HBoxContainer/FiftyPercent.disabled = false
+	if money < 5:
+		$HBoxContainer/HundredPercent.disabled = true
+	else:
+		$HBoxContainer/HundredPercent.disabled = false
+	if money == 0:
+		$CashOut.disabled = true
+	else:
+		$CashOut.disabled = false
+
+	$Label.text = "Credits: " + str(money)
+	$HBoxContainer/TenPercent.text = "Bet 10%: " + str(int(0.10 * money)) + " Creds"
+	$HBoxContainer/FiftyPercent.text = "Bet 50%: " + str(int(0.50 * money)) + " Creds"
+	$HBoxContainer/HundredPercent.text = "Bet 100%: " + str(money) + " Creds"
+	
+func disableButtons():
+	$HBoxContainer/TenPercent.disabled = true
+	$HBoxContainer/FiftyPercent.disabled = true
+	$HBoxContainer/HundredPercent.disabled = true
+
+func enableButtons():
+	$HBoxContainer/TenPercent.disabled = false
+	$HBoxContainer/FiftyPercent.disabled = false
+	$HBoxContainer/HundredPercent.disabled = false
+	
+func _on_insert_cash_pressed():
+	GlobalData.balance -= 50
+	money += 50
+	updateLabels()
 
 func _on_cash_out_pressed():
-	pass # Replace with function body.
+	GlobalData.balance += money
+	money -= money
+	updateLabels()
