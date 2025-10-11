@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcdftaac04bv1"]
+
+[ext_resource type="Script" uid="uid://6qbv44pbq0rh" path="res://Windows/GameTester/blackout_survival.gd" id="1_7dfcd"]
+[ext_resource type="PackedScene" uid="uid://bq1l4qy8cojw" path="res://Windows/GameTester/GameObjects/BurningTree1.tscn" id="1_ksrp4"]
+[ext_resource type="PackedScene" uid="uid://bejucjo8tm1l8" path="res://Windows/GameTester/GameObjects/BurningTree2.tscn" id="2_7dfcd"]
+[ext_resource type="PackedScene" uid="uid://7ymiqvrv4i4w" path="res://Windows/GameTester/GameObjects/BurningTree3.tscn" id="3_62ngu"]
+[ext_resource type="Script" uid="uid://clkr0muthwoo7" path="res://Windows/GameTester/GameScripts/blackout_character.gd" id="5_62ngu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yyud0"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6o86b"]
+material = SubResource("StandardMaterial3D_yyud0")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_62ngu"]
+size = Vector3(50, 50, 50)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6o86b"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5crbl"]
+
+[node name="BlackoutSurvival" type="Window"]
+oversampling_override = 1.0
+title = "Blackout Survival"
+position = Vector2i(60, 36)
+size = Vector2i(800, 600)
+script = ExtResource("1_7dfcd")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="BlackoutSurvivalBaseNode" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="BlackoutSurvivalBaseNode"]
+transform = Transform3D(1, 0, 0, 0, 0.78676265, 0.6172556, 0, -0.6172556, 0.78676265, 0, 12.546175, 0)
+
+[node name="WorldGeometry" type="Node3D" parent="BlackoutSurvivalBaseNode"]
+
+[node name="Floor" type="MeshInstance3D" parent="BlackoutSurvivalBaseNode/WorldGeometry"]
+mesh = SubResource("PlaneMesh_6o86b")
+
+[node name="Trees" type="Node3D" parent="BlackoutSurvivalBaseNode/WorldGeometry"]
+
+[node name="BurningTree1" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("1_ksrp4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.614178, -9.536743e-07, -7.091173)
+
+[node name="BurningTree2" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("1_ksrp4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0737057, 1.9073486e-06, -19.778107)
+
+[node name="BurningTree3" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("1_ksrp4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.470866, 0, 13.569876)
+
+[node name="BurningTree4" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("2_7dfcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.196155, 0, -16.216656)
+
+[node name="BurningTree5" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("2_7dfcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.518668, -9.536743e-07, -12.88712)
+
+[node name="BurningTree6" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("2_7dfcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.129205, 0, 15.441025)
+
+[node name="BurningTree7" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("2_7dfcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.447815, 0, -4.1791916)
+
+[node name="BurningTree8" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("3_62ngu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3792534, 0, 20.57055)
+
+[node name="BurningTree9" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("3_62ngu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.86056, 1.9073486e-06, 21.349699)
+
+[node name="BurningTree10" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("3_62ngu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.389471, 0, -20.418865)
+
+[node name="BurningTree11" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("3_62ngu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.457115, 0, -17.00858)
+
+[node name="WorldBoundary" type="StaticBody3D" parent="BlackoutSurvivalBaseNode/WorldGeometry"]
+
+[node name="WorldBoundaryCollision" type="CollisionShape3D" parent="BlackoutSurvivalBaseNode/WorldGeometry/WorldBoundary"]
+shape = SubResource("BoxShape3D_62ngu")
+
+[node name="IceBox" type="Node3D" parent="BlackoutSurvivalBaseNode"]
+
+[node name="blackoutCharacter" type="CharacterBody3D" parent="BlackoutSurvivalBaseNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.060394, 0)
+script = ExtResource("5_62ngu")
+
+[node name="Camera3D" type="Camera3D" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
+transform = Transform3D(1, 0, 0, 0, 0.7720019, 0.63562024, 0, -0.63562024, 0.7720019, 0, 9.642914, 6.5886917)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
+shape = SubResource("CapsuleShape3D_6o86b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
+mesh = SubResource("CapsuleMesh_5crbl")

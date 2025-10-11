@@ -1,0 +1,37 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=7 format=3 uid="uid://bkqfwq10cry0n"]
+
+[sub_resource type="Curve" id="Curve_gf0l0"]
+_data = [Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xt3p6"]
+curve = SubResource("Curve_gf0l0")
+
+[sub_resource type="Gradient" id="Gradient_4hdhd"]
+offsets = PackedFloat32Array(0, 0.30120483, 0.6506024, 1)
+colors = PackedColorArray(0.81197125, 0.20289215, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jqdov"]
+gradient = SubResource("Gradient_4hdhd")
+
+[sub_resource type="Curve" id="Curve_vdpud"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_unght"]
+curve = SubResource("Curve_vdpud")
+
+[resource]
+lifetime_randomness = 0.46
+emission_shape = 1
+emission_sphere_radius = 0.25
+gravity = Vector3(0, 7.8, 0)
+color_ramp = SubResource("GradientTexture1D_jqdov")
+alpha_curve = SubResource("CurveTexture_xt3p6")
+emission_curve = SubResource("CurveTexture_unght")
+hue_variation_min = -0.010000022
+hue_variation_max = 0.049999975
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_influence_min = 0.030000001
+turbulence_influence_max = 0.135
