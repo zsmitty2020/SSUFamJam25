@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://1xd7ml5km5on"]
+
+[ext_resource type="Texture2D" uid="uid://o22b1ejcsu2o" path="res://Windows/Sahara/sahara_background.png" id="1_js420"]
+
+[node name="Sahara" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_js420")
