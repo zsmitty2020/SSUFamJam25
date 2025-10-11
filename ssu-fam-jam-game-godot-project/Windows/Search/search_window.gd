@@ -53,3 +53,10 @@ func _on_slotsgambling_meta_clicked(_meta):
 		var temp = preload("res://Windows/SlotsGambling/slotsgambling.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("slotsgambling")
+
+
+func _on_dryft_meta_clicked(_meta: Variant) -> void:
+	if GlobalData.open_tabs.find("dryft")==-1:
+		var temp = preload("res://Windows/UberGame/uber_game.tscn").instantiate()
+		get_tree().get_root().add_child(temp)
+		GlobalData.open_tabs.append("dryft")

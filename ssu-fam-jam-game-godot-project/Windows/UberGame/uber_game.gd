@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	#print($NewTrip.time_left)
 
@@ -35,7 +35,7 @@ func _on_new_trip_timeout() -> void:
 
 
 func _on_close_requested() -> void:
-	#GlobalData.open_tabs.erase("search")
+	GlobalData.open_tabs.erase("dryft")
 	self.queue_free()
 
 
