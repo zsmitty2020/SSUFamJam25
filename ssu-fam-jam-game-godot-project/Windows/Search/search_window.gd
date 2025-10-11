@@ -41,14 +41,14 @@ func _on_freejob_meta_clicked(_meta: Variant) -> void:
 		GlobalData.open_tabs.append("freejob")
 
 
-func _on_adview_meta_clicked(meta: Variant) -> void:
+func _on_adview_meta_clicked(_meta: Variant) -> void:
 	if GlobalData.open_tabs.find("adview")==-1:
 		var temp = preload("res://Windows/AdView/adview_window.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("adview")
 
 
-func _on_slotsgambling_meta_clicked(meta):
+func _on_slotsgambling_meta_clicked(_meta):
 	if GlobalData.open_tabs.find("slotsgambling")==-1:
 		var temp = preload("res://Windows/SlotsGambling/slotsgambling.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
