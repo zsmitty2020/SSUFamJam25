@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://sf6s7b88dplf" path="res://Windows/Surveys/survey_window.gd" id="1_fc8nb"]
 
 [sub_resource type="Gradient" id="Gradient_rj8gn"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.89492244, 0.89492244, 0.8949224, 1, 0.89411765, 0.89411765, 0.89411765, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1wuo8"]
 gradient = SubResource("Gradient_rj8gn")
