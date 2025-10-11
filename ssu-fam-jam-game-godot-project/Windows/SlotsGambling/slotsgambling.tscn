@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbcf06btbqo36"]
+[gd_scene load_steps=11 format=3 uid="uid://cbcf06btbqo36"]
 
 [ext_resource type="Script" uid="uid://ds0jx5npmd217" path="res://Windows/SlotsGambling/gambling_main.gd" id="1_15ixx"]
+[ext_resource type="Script" uid="uid://bdy2lnn7sb5sl" path="res://Windows/SlotsGambling/slotsgamblingWindow.gd" id="1_encln"]
 [ext_resource type="PackedScene" uid="uid://brlbtg7sujs5j" path="res://Windows/SlotsGambling/symbol_squares.tscn" id="2_bc2yg"]
 [ext_resource type="AudioStream" uid="uid://cupxbblpglkww" path="res://Windows/SlotsGambling/GamblingAudio/GamblingBGMusic(No_Copyright_Pixabay).mp3" id="3_uwnka"]
 [ext_resource type="AudioStream" uid="uid://dnyxbbpchnb8g" path="res://Windows/SlotsGambling/GamblingAudio/gamblecore.ogg" id="4_encln"]
@@ -18,6 +19,7 @@ gradient = SubResource("Gradient_cjf61")
 oversampling_override = 1.0
 position = Vector2i(0, 36)
 size = Vector2i(800, 600)
+script = ExtResource("1_encln")
 
 [node name="Container" type="Control" parent="." node_paths=PackedStringArray("slot1", "slot2", "slot3")]
 layout_mode = 3
@@ -192,6 +194,7 @@ stream = ExtResource("7_1ri76")
 volume_db = -30.0
 parameters/looping = true
 
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="Container/HBoxContainer/TenPercent" to="Container" method="_on_ten_percent_pressed"]
 [connection signal="pressed" from="Container/HBoxContainer/FiftyPercent" to="Container" method="_on_fifty_percent_pressed"]
 [connection signal="pressed" from="Container/HBoxContainer/HundredPercent" to="Container" method="_on_hundred_percent_pressed"]
