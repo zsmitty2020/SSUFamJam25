@@ -12,6 +12,8 @@ var converse_credits = 0
 var clipboard = null
 var conversed = false
 
+var adview_bank = 0
+
 func _process(delta: float) -> void:
 	survey_timer -= delta
 	if survey_timer < 0:

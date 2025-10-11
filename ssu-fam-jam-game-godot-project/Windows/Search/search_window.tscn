@@ -147,9 +147,28 @@ bbcode_enabled = true
 text = "Quick labor done cheap, with employers all around the world"
 fit_content = true
 
+[node name="AdView" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
+layout_mode = 2
+
+[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/AdView"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.08267499, 0.4922912, 0.6973153, 1)
+bbcode_enabled = true
+text = "[url]AdView: Make Money Watching Ads[/url]
+"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/AdView"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.6941206, 0.6941206, 0.6941205, 1)
+bbcode_enabled = true
+text = "Ever wish you could make extra money with your rare spare time? Spend your time earning!"
+fit_content = true
+
 [connection signal="close_requested" from="." to="SearchWindow" method="_on_search_window_close_requested"]
 [connection signal="pressed" from="SearchWindow/MainSearchScreen/VBoxContainer/HBoxContainer/Button" to="SearchWindow" method="_on_button_pressed"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Bank/Url" to="SearchWindow" method="_on_url_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Survey/Url" to="SearchWindow" method="_on_survey_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Converse/Url" to="SearchWindow" method="_on_converse_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/FreeJob/Url" to="SearchWindow" method="_on_freejob_meta_clicked"]
+[connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/AdView/Url" to="SearchWindow" method="_on_adview_meta_clicked"]
