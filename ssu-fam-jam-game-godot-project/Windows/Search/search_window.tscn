@@ -1,0 +1,144 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfp36yjnfafbp"]
+
+[ext_resource type="Script" uid="uid://buouwyjamn0c5" path="res://Windows/Search/search_window.gd" id="1_0ftlf"]
+
+[sub_resource type="Gradient" id="Gradient_kj3s0"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0ftlf"]
+gradient = SubResource("Gradient_kj3s0")
+
+[node name="SearchWindow" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_0ftlf")
+script = ExtResource("1_0ftlf")
+
+[node name="MainSearchScreen" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainSearchScreen"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainSearchScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "PooPooButt Search"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainSearchScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="MainSearchScreen/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 0.5019608)
+text = "how to make money online"
+editable = false
+expand_to_text_length = true
+
+[node name="Button" type="Button" parent="MainSearchScreen/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Search"
+
+[node name="SearchResults" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SearchResults"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="SearchResults/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 0.5019608)
+text = "how to make money online"
+editable = false
+expand_to_text_length = true
+
+[node name="Item" type="VBoxContainer" parent="SearchResults/VBoxContainer"]
+layout_mode = 2
+
+[node name="Url" type="RichTextLabel" parent="SearchResults/VBoxContainer/Item"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.08267499, 0.4922912, 0.6973153, 1)
+bbcode_enabled = true
+text = "[url]Bank of PooPooButt[/url]
+"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="SearchResults/VBoxContainer/Item"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.6941206, 0.6941206, 0.6941205, 1)
+bbcode_enabled = true
+text = "Do all your banking with the best in the business!"
+fit_content = true
+
+[node name="Item2" type="VBoxContainer" parent="SearchResults/VBoxContainer"]
+layout_mode = 2
+
+[node name="Url" type="RichTextLabel" parent="SearchResults/VBoxContainer/Item2"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.08267499, 0.4922912, 0.6973153, 1)
+bbcode_enabled = true
+text = "[url]Bank of PooPooButt[/url]
+"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="SearchResults/VBoxContainer/Item2"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.6941206, 0.6941206, 0.6941205, 1)
+bbcode_enabled = true
+text = "Do all your banking with the best in the business!"
+fit_content = true
+
+[node name="Item3" type="VBoxContainer" parent="SearchResults/VBoxContainer"]
+layout_mode = 2
+
+[node name="Url" type="RichTextLabel" parent="SearchResults/VBoxContainer/Item3"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.08267499, 0.4922912, 0.6973153, 1)
+bbcode_enabled = true
+text = "[url]Bank of PooPooButt[/url]
+"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="SearchResults/VBoxContainer/Item3"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.6941206, 0.6941206, 0.6941205, 1)
+bbcode_enabled = true
+text = "Do all your banking with the best in the business!"
+fit_content = true
+
+[node name="Item4" type="VBoxContainer" parent="SearchResults/VBoxContainer"]
+layout_mode = 2
+
+[node name="Url" type="RichTextLabel" parent="SearchResults/VBoxContainer/Item4"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.08267499, 0.4922912, 0.6973153, 1)
+bbcode_enabled = true
+text = "[url]Bank of PooPooButt[/url]
+"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="SearchResults/VBoxContainer/Item4"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.6941206, 0.6941206, 0.6941205, 1)
+bbcode_enabled = true
+text = "Do all your banking with the best in the business!"
+fit_content = true
+
+[connection signal="pressed" from="MainSearchScreen/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
