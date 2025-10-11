@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://7ymiqvrv4i4w"]
+
+[ext_resource type="Material" uid="uid://gadlt1jngwm4" path="res://Windows/GameTester/GameMats/Wood.tres" id="1_dbdd6"]
+[ext_resource type="PackedScene" uid="uid://dieagn8suu0og" path="res://Windows/GameTester/GameAssets/fire_emitter.tscn" id="2_e8wtn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_07o3c"]
+material = ExtResource("1_dbdd6")
+
+[node name="BurningTree1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.53646064, 0, 0, 0, 5.141784, 0.15220143, 0, -1.5213084, 0.5144169, 0, 2.5954819, -0.77453315)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.32821536, -2.7030003, -0.26956344, 0, 4.7758856, -0.2926591, 0.34251103, 2.5901828, 0.25831246, -3.1920557, 9.140205, -0.66518426)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4038307, -3.7773168, 0.020878162, 0.34780803, 3.9878852, 0.16409345, -0.12549792, -1.1026301, 0.5219548, -1.8492538, 6.7088304, -1.8981495)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.18195936, 1.5910408, -0.71760136, 0.52781844, 4.1115065, 0.26140437, 0.5213291, -4.7180047, -0.014194076, 0.27099073, 7.169508, -3.9683876)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="GPUParticles3D2" parent="." instance=ExtResource("2_e8wtn")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -3.6235557, 8.222819, -2.3169608)
+
+[node name="GPUParticles3D3" parent="." instance=ExtResource("2_e8wtn")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.34832722, 7.96615, -4.5800133)

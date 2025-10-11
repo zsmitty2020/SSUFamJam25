@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bejucjo8tm1l8"]
+
+[ext_resource type="Material" uid="uid://gadlt1jngwm4" path="res://Windows/GameTester/GameMats/Wood.tres" id="1_prq3t"]
+[ext_resource type="PackedScene" uid="uid://dieagn8suu0og" path="res://Windows/GameTester/GameAssets/fire_emitter.tscn" id="2_gx0nw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_07o3c"]
+material = ExtResource("1_prq3t")
+
+[node name="BurningTree1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 2.1686895, -0.12419427, 0, 1.2413669, 0.21696955, 0, 1.0589126, 0.5457538)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.12599249, 1.6080879, 0.10216754, -0.2159303, 0.93829817, 0.059613418, 0, -0.99992806, 0.22024539, 0.7706084, 2.5517015, 0.656327)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.14683393, -1.209243, -0.12059478, 0, 2.1365912, -0.1309271, 0.15322939, 1.1587718, 0.115561426, -0.61364305, 3.2243307, 1.6853805)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.18438429, -1.7246778, 0.00953272, 0.158805, 1.8208209, 0.07492311, -0.05730086, -0.5034478, 0.23831832, -0.7972169, 3.1231456, 0.8798552)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.059552424, 0.5207225, -0.23485957, 0.17274663, 1.345631, 0.08555352, 0.17062278, -1.5441284, -0.0046454966, -1.1209519, 4.343645, -0.0082063675)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="GPUParticles3D2" parent="." instance=ExtResource("2_gx0nw")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.8575839, 5.0663176, -0.62151814)
+
+[node name="GPUParticles3D3" parent="." instance=ExtResource("2_gx0nw")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.9832903, 2.7949426, 0.5550422)

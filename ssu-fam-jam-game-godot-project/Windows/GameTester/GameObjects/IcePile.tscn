@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://h47lil7880aw"]
+
+[ext_resource type="Script" uid="uid://dadx1dph5bro5" path="res://Windows/GameTester/GameScripts/ice_pile.gd" id="1_e0fc7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x03jo"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y63e5"]
+albedo_color = Color(0, 1, 1, 0.06666667)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ryw6q"]
+material = SubResource("StandardMaterial3D_y63e5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgy4i"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.5294118)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3sdwb"]
+material = SubResource("StandardMaterial3D_xgy4i")
+
+[node name="IcePile" type="Node3D"]
+script = ExtResource("1_e0fc7")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_x03jo")
+
+[node name="DaIce" type="Node3D" parent="."]
+
+[node name="Ice1" type="Node3D" parent="DaIce"]
+transform = Transform3D(0.77807873, 0, -0.6281668, 0, 1, 0, 0.6281668, 0, 0.77807873, -0.52063364, 1.1920929e-07, -0.58309853)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DaIce/Ice1"]
+mesh = SubResource("BoxMesh_ryw6q")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="DaIce/Ice1"]
+transform = Transform3D(1.1296573, 0, 0, 0, 1.1296573, 0, 0, 0, 1.1296573, 0, 0, 0)
+mesh = SubResource("BoxMesh_3sdwb")
+skeleton = NodePath("../../..")
+
+[node name="Ice3" type="Node3D" parent="DaIce"]
+transform = Transform3D(0.26715434, 0, -0.96365374, 0, 1, 0, 0.96365374, 0, 0.26715434, -0.14411813, 1.1920929e-07, 0.6998892)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DaIce/Ice3"]
+mesh = SubResource("BoxMesh_ryw6q")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="DaIce/Ice3"]
+transform = Transform3D(1.1296573, 0, 0, 0, 1.1296573, 0, 0, 0, 1.1296573, 0, 0, 0)
+mesh = SubResource("BoxMesh_3sdwb")
+skeleton = NodePath("../../..")
+
+[node name="Ice4" type="Node3D" parent="DaIce"]
+transform = Transform3D(0.77148026, 0, -0.6362532, 0, 1, 0, 0.6362532, 0, 0.77148026, 0.74373287, 3.5762787e-07, -0.28845096)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DaIce/Ice4"]
+mesh = SubResource("BoxMesh_ryw6q")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="DaIce/Ice4"]
+transform = Transform3D(1.1296573, 0, 0, 0, 1.1296573, 0, 0, 0, 1.1296573, 0, 0, 0)
+mesh = SubResource("BoxMesh_3sdwb")
+skeleton = NodePath("../../..")
+
+[node name="Ice2" type="Node3D" parent="DaIce"]
+transform = Transform3D(0.93533766, 0.046416573, -0.3506978, -0.049564477, 0.9987709, 0, 0.35026675, 0.017382152, 0.9364887, 0.1586523, 1.0588702, 0.0802291)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DaIce/Ice2"]
+mesh = SubResource("BoxMesh_ryw6q")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="DaIce/Ice2"]
+transform = Transform3D(1.1296573, 0, 0, 0, 1.1296573, 0, 0, 0, 1.1296573, 0, 0, 0)
+mesh = SubResource("BoxMesh_3sdwb")
+skeleton = NodePath("../../..")

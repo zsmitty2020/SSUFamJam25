@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq1l4qy8cojw"]
+
+[ext_resource type="Material" uid="uid://gadlt1jngwm4" path="res://Windows/GameTester/GameMats/Wood.tres" id="1_0hkpf"]
+[ext_resource type="PackedScene" uid="uid://dieagn8suu0og" path="res://Windows/GameTester/GameAssets/fire_emitter.tscn" id="2_1dcg6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_07o3c"]
+material = ExtResource("1_0hkpf")
+
+[node name="BurningTree1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 3.2445536, 0, 0, 0, 0.25, 0, 1.6890182, 0)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 1.8618137, 0.11828764, 0, -0.99992806, 0.22024539, 0.00086438656, 4.1583905, -0.4973929)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.17296965, -1.4244823, -0.14206006, 0, 2.5168939, -0.15423149, 0.18050347, 1.3650274, 0.1361308, -0.7104303, 4.596968, 0.65620196)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.19526847, 0.9854245, 0.12286164, -0.051292952, 2.3064253, -0.0951737, -0.14744239, 0.5026976, 0.19582386, 0.47965527, 6.048074, -0.71246773)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.17296965, -0.941343, -0.14206006, 0.1727466, 1.3456309, 0.08555351, 0.052346144, -1.3301718, 0.18708162, -1.8396606, 6.413427, 0.68740416)
+mesh = SubResource("BoxMesh_07o3c")
+
+[node name="GPUParticles3D" parent="." instance=ExtResource("2_1dcg6")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.2582638, 6.9954224, 0.07108259)
+
+[node name="GPUParticles3D2" parent="." instance=ExtResource("2_1dcg6")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.41793287, 5.9032087, -0.62151814)
+
+[node name="GPUParticles3D3" parent="." instance=ExtResource("2_1dcg6")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.114168644, 3.3668966, 0.02550459)
