@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dunhxatu8atam"]
+
+[ext_resource type="Script" uid="uid://d1jw6kpttdvoq" path="res://Windows/Surveys/location.gd" id="1_8nrvw"]
+
+[node name="location" type="VBoxContainer"]
+script = ExtResource("1_8nrvw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5796909, 0.57969093, 0.57969093, 1)
+text = "What is your home address?"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
