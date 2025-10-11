@@ -2,5 +2,9 @@ extends VBoxContainer
 
 signal interact
 
+var diddled = false
+
 func interaction(_miscvar) -> void:
-	interact.emit()
+	if not diddled:
+		diddled = true
+		interact.emit()
