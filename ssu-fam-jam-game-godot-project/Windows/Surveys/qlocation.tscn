@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dunhxatu8atam"]
+[gd_scene load_steps=3 format=3 uid="uid://dunhxatu8atam"]
 
 [ext_resource type="Script" uid="uid://d1jw6kpttdvoq" path="res://Windows/Surveys/location.gd" id="1_8nrvw"]
+[ext_resource type="Script" uid="uid://cc3xbcd1iiqo0" path="res://Windows/Surveys/randomtitler.gd" id="2_68ybg"]
 
 [node name="location" type="VBoxContainer"]
 script = ExtResource("1_8nrvw")
@@ -9,6 +10,7 @@ script = ExtResource("1_8nrvw")
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5796909, 0.57969093, 0.57969093, 1)
 text = "What is your home address?"
+script = ExtResource("2_68ybg")
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 2
