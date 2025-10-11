@@ -8,6 +8,12 @@ var survey_time:float = 120
 var survey_timer:float = survey_time
 var survey_count:int = 3
 
+var converse_credits = 0
+var clipboard = null
+var conversed = false
+
+var adview_bank = 0
+
 func _process(delta: float) -> void:
 	survey_timer -= delta
 	if survey_timer < 0:

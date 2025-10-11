@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://drohj0rpa0r08"]
+
+[ext_resource type="Script" uid="uid://bhlw0nk448fef" path="res://Windows/Ball_Bouncer/Ball.gd" id="1_r0yan"]
+[ext_resource type="Texture2D" uid="uid://drjfpyyn3yv4h" path="res://Windows/Ball_Bouncer/Ball_Bouncer_Assets/ball.png" id="2_6la0c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4tkpc"]
+radius = 16.0
+
+[node name="ball" type="Area2D"]
+rotation = 0.64751714
+script = ExtResource("1_r0yan")
+metadata/_edit_group_ = true
+
+[node name="ball_collision" type="CollisionShape2D" parent="."]
+rotation = 0.12042772
+shape = SubResource("CircleShape2D_4tkpc")
+
+[node name="ball_object" type="Sprite2D" parent="."]
+rotation = -0.0017453292
+texture = ExtResource("2_6la0c")
+
+[connection signal="ready" from="." to="." method="_on_ball_ready"]

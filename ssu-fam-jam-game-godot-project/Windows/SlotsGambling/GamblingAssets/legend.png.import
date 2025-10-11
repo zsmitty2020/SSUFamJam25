@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcmg7h3gxyi72"
-path="res://.godot/imported/blue.png-a1cfea48db88dbe842571549a040ce79.ctex"
+uid="uid://csjry8lki7k1p"
+path="res://.godot/imported/legend.png-9ec6e555c1300c455235a12a0247b405.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Windows/Flappy_Fly/fly/blue.png"
-dest_files=["res://.godot/imported/blue.png-a1cfea48db88dbe842571549a040ce79.ctex"]
+source_file="res://Windows/SlotsGambling/GamblingAssets/legend.png"
+dest_files=["res://.godot/imported/legend.png-9ec6e555c1300c455235a12a0247b405.ctex"]
 
 [params]
 

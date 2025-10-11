@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SSUFamJamGameGodotProject"
-run/main_scene="uid://dfp36yjnfafbp"
+run/main_scene="uid://bhpxu325vkobw"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

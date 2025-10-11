@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://brlbtg7sujs5j"]
+
+[ext_resource type="Script" uid="uid://cmugcrqe6j0aa" path="res://Windows/SlotsGambling/symbol_squares.gd" id="1_0rlxr"]
+[ext_resource type="Texture2D" uid="uid://cxm5u0ionmejo" path="res://Windows/SlotsGambling/GamblingAssets/outline.png" id="1_ecuwk"]
+[ext_resource type="Texture2D" uid="uid://ddvmk3rdhpm0q" path="res://Windows/SlotsGambling/GamblingAssets/cherry.png" id="2_0rlxr"]
+[ext_resource type="Texture2D" uid="uid://dx7w403p4rgoc" path="res://Windows/SlotsGambling/GamblingAssets/lemon.png" id="3_icikr"]
+[ext_resource type="Texture2D" uid="uid://d1tgl7meeys5u" path="res://Windows/SlotsGambling/GamblingAssets/bell.png" id="4_mhp0h"]
+[ext_resource type="Texture2D" uid="uid://dm7y3jijnbq4w" path="res://Windows/SlotsGambling/GamblingAssets/bar.png" id="5_jfthy"]
+
+[node name="symbolSquares" type="Control" groups=["slots"]]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0rlxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ecuwk")
+
+[node name="cherry" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_0rlxr")
+
+[node name="lemon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_icikr")
+
+[node name="bell" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_mhp0h")
+
+[node name="bar" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_jfthy")

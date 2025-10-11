@@ -10,7 +10,7 @@ gradient = SubResource("Gradient_kj3s0")
 
 [node name="SearchWindow" type="Window"]
 oversampling_override = 1.0
-title = "PooPooButt Search"
+title = "Consult Connor: The World's Premiere Search Engine"
 position = Vector2i(7, 36)
 size = Vector2i(800, 600)
 
@@ -36,8 +36,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="SearchWindow/MainSearchScreen/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "PooPooButt Search"
+theme_override_colors/font_color = Color(0.7411765, 0, 0, 1)
+text = "Consult Connor: Search Anything!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SearchWindow/MainSearchScreen/VBoxContainer"]
 layout_mode = 2
@@ -129,22 +129,57 @@ bbcode_enabled = true
 text = "Talk to the latest and greatest GPUs and pawn your work off on them"
 fit_content = true
 
-[node name="Item4" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
+[node name="FreeJob" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
 layout_mode = 2
 
-[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/Item4"]
+[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/FreeJob"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.08267499, 0.4922912, 0.6973153, 1)
 bbcode_enabled = true
-text = "[url]Bank of PooPooButt[/url]
+text = "[url]FreeJob: Freelance Work Board[/url]
 "
 fit_content = true
 
-[node name="Description" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/Item4"]
+[node name="Description" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/FreeJob"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.6941206, 0.6941206, 0.6941205, 1)
 bbcode_enabled = true
-text = "Do all your banking with the best in the business!"
+text = "Quick labor done cheap, with employers all around the world"
+fit_content = true
+
+[node name="AdView" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
+layout_mode = 2
+
+[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/AdView"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.08267499, 0.4922912, 0.6973153, 1)
+bbcode_enabled = true
+text = "[url]AdView: Make Money Watching Ads[/url]
+"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/AdView"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.6941206, 0.6941206, 0.6941205, 1)
+bbcode_enabled = true
+text = "Ever wish you could make extra money with your rare spare time? Spend your time earning!"
+fit_content = true
+
+[node name="SlotsGambling" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
+layout_mode = 2
+
+[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/SlotsGambling"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.08235294, 0.49411765, 0.69803923, 1)
+bbcode_enabled = true
+text = "[url]High Roller Slots[/url]"
+fit_content = true
+
+[node name="Descripion" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/SlotsGambling"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.69411767, 0.69411767, 0.69411767, 1)
+bbcode_enabled = true
+text = "Come play for big money!"
 fit_content = true
 
 [connection signal="close_requested" from="." to="SearchWindow" method="_on_search_window_close_requested"]
@@ -152,3 +187,6 @@ fit_content = true
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Bank/Url" to="SearchWindow" method="_on_url_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Survey/Url" to="SearchWindow" method="_on_survey_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Converse/Url" to="SearchWindow" method="_on_converse_meta_clicked"]
+[connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/FreeJob/Url" to="SearchWindow" method="_on_freejob_meta_clicked"]
+[connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/AdView/Url" to="SearchWindow" method="_on_adview_meta_clicked"]
+[connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/SlotsGambling/Url" to="SearchWindow" method="_on_slotsgambling_meta_clicked"]

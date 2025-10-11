@@ -2,14 +2,17 @@
 
 [ext_resource type="Script" uid="uid://d4ddev0qunue2" path="res://Windows/Bank/bank_window.gd" id="1_rk71q"]
 
-[sub_resource type="Gradient" id="Gradient_vqyj1"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+[sub_resource type="Gradient" id="Gradient_rk71q"]
+offsets = PackedFloat32Array(0.31543624, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.6762742, 0.844334, 0.9550827, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_rk71q"]
-gradient = SubResource("Gradient_vqyj1")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_shjuj"]
+gradient = SubResource("Gradient_rk71q")
+fill = 1
 
 [node name="BankWindow" type="Window"]
 oversampling_override = 1.0
+title = "PPB Bank: Your Account"
 position = Vector2i(7, 31)
 size = Vector2i(800, 600)
 
@@ -19,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_rk71q")
+texture = SubResource("GradientTexture2D_shjuj")
 script = ExtResource("1_rk71q")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BankWindow"]
@@ -32,9 +35,9 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="BankWindow/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0.8784314, 1)
 theme_override_font_sizes/font_size = 36
-text = "PooPooButt Bank"
+text = "PPB Bank"
 
 [node name="Label2" type="Label" parent="BankWindow/VBoxContainer"]
 layout_mode = 2
