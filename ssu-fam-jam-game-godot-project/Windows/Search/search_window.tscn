@@ -8,9 +8,10 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_0ftlf"]
 gradient = SubResource("Gradient_kj3s0")
 
-[node name="Window" type="Window"]
+[node name="SearchWindow" type="Window"]
 oversampling_override = 1.0
 title = "PooPooButt Search"
+position = Vector2i(7, 31)
 size = Vector2i(800, 600)
 
 [node name="SearchWindow" type="TextureRect" parent="."]
