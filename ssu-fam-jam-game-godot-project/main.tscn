@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://sv0nyfpwoil7"]
+[gd_scene load_steps=2 format=3 uid="uid://sv0nyfpwoil7"]
+
+[ext_resource type="PackedScene" uid="uid://dfp36yjnfafbp" path="res://Windows/Search/search_window.tscn" id="1_ig7tw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +9,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Window" parent="." instance=ExtResource("1_ig7tw")]

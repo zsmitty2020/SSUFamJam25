@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://sj2exwkcskeg"]
+
+[ext_resource type="Script" uid="uid://d1igosyevkuu6" path="res://Windows/Surveys/survey_link.gd" id="1_odrg6"]
+
+[node name="SurveyLink" type="RichTextLabel"]
+theme_override_colors/default_color = Color(0.117925726, 0.34323788, 0.5721448, 1)
+bbcode_enabled = true
+text = "[url]Click here to complete a survey and earn $$$[/url]"
+fit_content = true
+script = ExtResource("1_odrg6")

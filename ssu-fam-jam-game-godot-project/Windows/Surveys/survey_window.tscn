@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://v7jfi1femmc4"]
+
+[ext_resource type="Script" uid="uid://sf6s7b88dplf" path="res://Windows/Surveys/survey_window.gd" id="1_fc8nb"]
+
+[sub_resource type="Gradient" id="Gradient_rj8gn"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1wuo8"]
+gradient = SubResource("Gradient_rj8gn")
+
+[node name="SurveyWindow" type="Window"]
+oversampling_override = 1.0
+position = Vector2i(7, 36)
+size = Vector2i(800, 600)
+
+[node name="SurveyWindow" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_1wuo8")
+script = ExtResource("1_fc8nb")
+
+[node name="Surveys" type="VBoxContainer" parent="SurveyWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SurveyWindow/Surveys"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0756828, 0.4815541, 0.3225566, 1)
+theme_override_font_sizes/font_size = 36
+text = "Survey Slopper"
+
+[node name="Refresh" type="Button" parent="SurveyWindow"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "refresh"
+expand_icon = true
+
+[connection signal="close_requested" from="." to="SurveyWindow" method="_on_survey_window_close_requested"]
+[connection signal="pressed" from="SurveyWindow/Refresh" to="SurveyWindow" method="_on_refresh_pressed"]
