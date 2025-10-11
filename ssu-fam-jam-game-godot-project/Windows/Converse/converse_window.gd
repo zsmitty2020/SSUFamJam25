@@ -1,7 +1,7 @@
 extends TextureRect
 
 var responses:Array[String] = [
-	"Where's what I think...",
+	"Here's what I think...",
 	"Maybe try this out?",
 	"Oh man...", 
 	"Truly I have no idea, here's my best guess",
