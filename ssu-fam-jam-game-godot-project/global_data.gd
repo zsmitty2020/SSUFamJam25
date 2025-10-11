@@ -1,6 +1,6 @@
 extends Node
 
-var inventory = {}
+var inventory = {"Active Cars":0,"Total Cars":1}
 var balance:float = 0.00
 var open_tabs:Array[String] = []
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhpxu325vkobw"]
+[gd_scene load_steps=5 format=3 uid="uid://bhpxu325vkobw"]
 
 [ext_resource type="Texture2D" uid="uid://c704nmwmiwsf5" path="res://Desktop/Background.png" id="1_d8c33"]
 [ext_resource type="PackedScene" uid="uid://dgmi3cmk7hye3" path="res://Desktop/desktop_icons.tscn" id="2_shxmn"]
+[ext_resource type="PackedScene" uid="uid://dfp36yjnfafbp" path="res://Windows/Search/search_window.tscn" id="3_bs2xe"]
+[ext_resource type="Texture2D" uid="uid://d0cen2x05xo0t" path="res://Desktop/ConsultConnorImage.png" id="4_vxohe"]
 
 [node name="Desktop" type="TextureRect"]
 anchors_preset = 15
@@ -17,3 +19,6 @@ offset_left = 27.0
 offset_top = 43.0
 offset_right = 59.0
 offset_bottom = 75.0
+link = ExtResource("3_bs2xe")
+image = ExtResource("4_vxohe")
+label = "Consult Connor"

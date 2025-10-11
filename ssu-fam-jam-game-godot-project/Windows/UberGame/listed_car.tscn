@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckntdw0jjny8x"]
+
+[ext_resource type="Script" uid="uid://0xl5f02nrqt1" path="res://Windows/UberGame/listed_car.gd" id="1_j7oeb"]
+[ext_resource type="Texture2D" uid="uid://ba7llufkcno2t" path="res://Windows/UberGame/Car.png" id="1_roipc"]
+
+[node name="ListedCar" type="Control"]
+custom_minimum_size = Vector2(500, 85)
+layout_mode = 3
+anchor_right = 0.43400002
+anchor_bottom = 0.13100001
+offset_right = 0.031982422
+offset_bottom = 0.11199188
+script = ExtResource("1_j7oeb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="CarName" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Car 1"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_roipc")
+
+[node name="CarOptions" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/CarOptions"]
+layout_mode = 2
+
+[node name="PaymentLabel" type="Label" parent="VBoxContainer/HBoxContainer/CarOptions/VBoxContainer"]
+layout_mode = 2
+text = "Reward: $35.00"
+
+[node name="RideTime" type="Label" parent="VBoxContainer/HBoxContainer/CarOptions/VBoxContainer"]
+layout_mode = 2
+text = "Ride Time: 45 seconds"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/CarOptions"]
+layout_mode = 2
+
+[node name="AcceptButton" type="Button" parent="VBoxContainer/HBoxContainer/CarOptions/HBoxContainer"]
+layout_mode = 2
+text = "Accept Ride"
+
+[node name="RejectButton" type="Button" parent="VBoxContainer/HBoxContainer/CarOptions/HBoxContainer"]
+layout_mode = 2
+text = "Reject Ride"
+
+[node name="DriveTime" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CarOptions/HBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CarOptions/HBoxContainer/RejectButton" to="." method="_on_reject_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
