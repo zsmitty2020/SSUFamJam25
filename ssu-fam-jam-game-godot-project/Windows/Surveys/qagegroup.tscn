@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b43dlft2wmoya"]
+
+[ext_resource type="Script" uid="uid://d1jw6kpttdvoq" path="res://Windows/Surveys/location.gd" id="1_rrwwr"]
+
+[node name="agegroup" type="VBoxContainer"]
+script = ExtResource("1_rrwwr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5796909, 0.57969093, 0.57969093, 1)
+text = "How old are you?"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "<18"
+popup/item_0/id = 0
+popup/item_1/text = "18-24"
+popup/item_1/id = 1
+popup/item_2/text = "25-30"
+popup/item_2/id = 2
+popup/item_3/text = "31+"
+popup/item_3/id = 3
+
+[connection signal="item_selected" from="OptionButton" to="." method="interaction"]

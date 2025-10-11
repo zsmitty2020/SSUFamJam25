@@ -13,4 +13,4 @@ text = "What is your home address?"
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 2
 
-[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_changed" from="LineEdit" to="." method="interaction"]
