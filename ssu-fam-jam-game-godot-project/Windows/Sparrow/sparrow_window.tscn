@@ -1,16 +1,105 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdps8wxwji0le"]
+[gd_scene load_steps=5 format=3 uid="uid://cdps8wxwji0le"]
 
 [ext_resource type="Script" uid="uid://bsgb5k867wo8s" path="res://Windows/Sparrow/sparrow_window.gd" id="1_7wjpe"]
+[ext_resource type="Script" uid="uid://duywaftx372jt" path="res://Windows/Sparrow/stock.gd" id="2_vl6w5"]
+
+[sub_resource type="Gradient" id="Gradient_vr0s1"]
+colors = PackedColorArray(0.15294118, 0.16862746, 0.32941177, 1, 0.15294118, 0.16862746, 0.32941177, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_orgtb"]
+gradient = SubResource("Gradient_vr0s1")
 
 [node name="SparrowWindow" type="Window"]
 oversampling_override = 1.0
 title = "SparrowStock: Buy and Sell like a REAL Trader"
-position = Vector2i(7, 31)
+position = Vector2i(7, 36)
 size = Vector2i(800, 600)
 
 [node name="SparrowWindow" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_orgtb")
 script = ExtResource("1_7wjpe")
 
+[node name="Stock" type="Line2D" parent="SparrowWindow"]
+script = ExtResource("2_vl6w5")
+
+[node name="StockTitle" type="Label" parent="SparrowWindow"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Current Stock: "
+
+[node name="Price" type="Label" parent="SparrowWindow"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Price: $"
+
+[node name="<" type="Button" parent="SparrowWindow"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 31.0
+text = "<"
+
+[node name=">" type="Button" parent="SparrowWindow"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = ">
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SparrowWindow"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -69.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Owned" type="Label" parent="SparrowWindow/VBoxContainer"]
+layout_mode = 2
+text = "Owned: "
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SparrowWindow/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Buy" type="Button" parent="SparrowWindow/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Buy"
+
+[node name="Sell" type="Button" parent="SparrowWindow/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Sell"
+
 [connection signal="close_requested" from="." to="SparrowWindow" method="_on_sparrow_window_close_requested"]
+[connection signal="pressed" from="SparrowWindow/<" to="SparrowWindow" method="_on_left_pressed"]
+[connection signal="pressed" from="SparrowWindow/>" to="SparrowWindow" method="_on__pressed"]
+[connection signal="pressed" from="SparrowWindow/VBoxContainer/HBoxContainer/Buy" to="SparrowWindow" method="_on_buy_pressed"]
+[connection signal="pressed" from="SparrowWindow/VBoxContainer/HBoxContainer/Sell" to="SparrowWindow" method="_on_sell_pressed"]
