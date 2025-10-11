@@ -25,4 +25,7 @@ func _on_update_pressed() -> void:
 
 func lose():
 	print("LOOOOSER FUCKING LOOOOOSER YOU LOOOOOSE")
-	get_tree().quit()
+	for i in get_tree().get_root().get_children(true):
+		if i is Window:
+			i.close_requested.emit()
+	get_tree().change_scene_to_file("res://Desktop/BlueScreen/blue_screen.tscn")

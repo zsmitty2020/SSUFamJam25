@@ -1,6 +1,6 @@
 extends Node
 
-var inventory = {"Active Cars":0,"Total Cars":1}
+var inventory = {"Active Cars":0,"Total Cars":0}
 var balance:float = 0.00
 var open_tabs:Array[String] = []
 
@@ -27,3 +27,17 @@ func _process(delta: float) -> void:
 	if survey_timer < 0:
 		survey_count += 3
 		survey_timer = survey_time
+
+func reset():
+	inventory = {"Active Cars":0,"Total Cars":0}
+	balance = 0.0
+	open_tabs = []
+	survey_time = 120
+	survey_timer = survey_time
+	survey_count = 3
+	converse_credits = 0
+	clipboard = null
+	conversed = false
+	adview_bank = 0
+	update_timer = 30
+	num_updates = 0
