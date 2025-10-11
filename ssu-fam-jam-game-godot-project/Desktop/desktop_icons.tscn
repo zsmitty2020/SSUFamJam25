@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgmi3cmk7hye3"]
+
+[ext_resource type="Texture2D" uid="uid://d0cen2x05xo0t" path="res://Desktop/ConsultConnorImage.png" id="1_mdcps"]
+[ext_resource type="Script" uid="uid://81jd7iut2hd0" path="res://Desktop/desktop_icons.gd" id="2_41kt3"]
+
+[node name="icon" type="TextureButton"]
+offset_right = 32.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_mdcps")
+script = ExtResource("2_41kt3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Consult Connor"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
