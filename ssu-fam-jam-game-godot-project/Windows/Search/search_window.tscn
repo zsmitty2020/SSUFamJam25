@@ -147,5 +147,6 @@ bbcode_enabled = true
 text = "Do all your banking with the best in the business!"
 fit_content = true
 
+[connection signal="close_requested" from="." to="SearchWindow" method="_on_search_window_close_requested"]
 [connection signal="pressed" from="SearchWindow/MainSearchScreen/VBoxContainer/HBoxContainer/Button" to="SearchWindow" method="_on_button_pressed"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Item/Url" to="SearchWindow" method="_on_url_meta_clicked"]

@@ -13,3 +13,8 @@ func _on_url_meta_clicked(_meta: Variant) -> void:
 	if GlobalData.open_tabs.find("bank")==-1:
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("bank")
+
+
+func _on_search_window_close_requested() -> void:
+	GlobalData.open_tabs.erase("search")
+	get_parent().queue_free()
