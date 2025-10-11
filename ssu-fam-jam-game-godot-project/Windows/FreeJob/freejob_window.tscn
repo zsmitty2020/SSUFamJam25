@@ -102,6 +102,7 @@ layout_mode = 2
 text = "Cancel"
 
 [node name="FinishedPop-Up" type="ColorRect" parent="FreeJobWindow"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
