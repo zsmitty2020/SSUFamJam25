@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdps8wxwji0le"]
+
+[ext_resource type="Script" uid="uid://bsgb5k867wo8s" path="res://Windows/Sparrow/sparrow_window.gd" id="1_7wjpe"]
+
+[node name="SparrowWindow" type="Window"]
+oversampling_override = 1.0
+title = "SparrowStock: Buy and Sell like a REAL Trader"
+position = Vector2i(7, 31)
+size = Vector2i(800, 600)
+
+[node name="SparrowWindow" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7wjpe")
+
+[connection signal="close_requested" from="." to="SparrowWindow" method="_on_sparrow_window_close_requested"]

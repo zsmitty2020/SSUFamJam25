@@ -67,3 +67,10 @@ func _on_freejob_meta_clicked(_meta: Variant) -> void:
 		var temp = preload("res://Windows/FreeJob/freejob_window.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("freejob")
+
+
+func _on_sparrow_meta_clicked(_meta: Variant) -> void:
+	if GlobalData.open_tabs.find("sparrow")==-1:
+		var temp = preload("res://Windows/Sparrow/sparrow_window.tscn").instantiate()
+		get_tree().get_root().add_child(temp)
+		GlobalData.open_tabs.append("sparrow")
