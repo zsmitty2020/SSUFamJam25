@@ -55,20 +55,28 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Updates available: 
 Your PC will restart automatically"
 
-[node name="Remind" type="Button" parent="WinwoesUpdate"]
+[node name="HBoxContainer" type="HBoxContainer" parent="WinwoesUpdate"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -70.5
-offset_top = -56.0
-offset_right = 70.5
-offset_bottom = -25.0
+offset_left = -125.0
+offset_top = -57.0
+offset_right = 125.0
+offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Update" type="Button" parent="WinwoesUpdate/HBoxContainer"]
+layout_mode = 2
+text = "Update Now"
+
+[node name="Remind" type="Button" parent="WinwoesUpdate/HBoxContainer"]
+layout_mode = 2
 text = "Remind Me Later"
 
 [connection signal="close_requested" from="." to="WinwoesUpdate" method="_on_winwoes_close_requested"]
-[connection signal="pressed" from="WinwoesUpdate/Remind" to="WinwoesUpdate" method="_on_remind_pressed"]
+[connection signal="pressed" from="WinwoesUpdate/HBoxContainer/Update" to="WinwoesUpdate" method="_on_update_pressed"]
+[connection signal="pressed" from="WinwoesUpdate/HBoxContainer/Remind" to="WinwoesUpdate" method="_on_remind_pressed"]
