@@ -23,7 +23,7 @@ var stocks:Dictionary[String, Array] = {}
 var volatility:Dictionary[String, float] = {}
 var volatility_cycle:Dictionary[String, int] = {}
 var stockpeak = 200
-var stockmin = 0.01
+var stockmin = 1.00
 var stocktime = 15
 var stocktimer = stocktime
 
@@ -74,7 +74,7 @@ func update_stock(stock_name:String):
 	volatility_cycle[stock_name] -= 1
 	if volatility_cycle[stock_name] <= 0:
 		volatility_cycle[stock_name] = randi_range(1, 10)
-		volatility[stock_name] = randf_range(1.00, 3)
+		volatility[stock_name] = randf_range(0.01, 3)
 
 
 func reset():
