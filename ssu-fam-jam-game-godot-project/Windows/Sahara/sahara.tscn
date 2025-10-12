@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://1xd7ml5km5on"]
+[gd_scene load_steps=4 format=3 uid="uid://1xd7ml5km5on"]
 
 [ext_resource type="Texture2D" uid="uid://o22b1ejcsu2o" path="res://Windows/Sahara/sahara_background.png" id="1_js420"]
+[ext_resource type="Script" uid="uid://df2sl046xw448" path="res://Windows/Sahara/sahara.gd" id="2_rc4ii"]
+[ext_resource type="PackedScene" uid="uid://cyenfnqvxptex" path="res://Windows/Sahara/sahara_listing.tscn" id="3_h28tj"]
 
 [node name="Sahara" type="TextureRect"]
 anchors_preset = 15
@@ -8,4 +10,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
 texture = ExtResource("1_js420")
+script = ExtResource("2_rc4ii")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.23302469
+anchor_right = 1.0
+anchor_bottom = 0.23302469
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="SaharaListing" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_h28tj")]
+layout_mode = 2
+item_name = "Game Controller"
+item_description = "Top of the line game controller for game testing"
