@@ -176,6 +176,7 @@ one_shot = true
 stream = ExtResource("3_uwnka")
 volume_db = -30.0
 autoplay = true
+parameters/looping = true
 
 [node name="beginGambling" type="AudioStreamPlayer" parent="Container"]
 stream = ExtResource("4_encln")

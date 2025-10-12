@@ -9,6 +9,9 @@ var money = 0
 var rolling = false
 var canRoll = true
 
+func _ready():
+	money = GlobalData.slotsCredits
+	updateLabels()
 
 func _process(_delta):
 	if GlobalData.balance < 50:
