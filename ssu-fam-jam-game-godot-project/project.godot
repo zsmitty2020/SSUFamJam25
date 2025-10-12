@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GlobalData="*res://global_data.gd"
 
+[global_group]
+
+blackoutCharacter=""
+
 [input]
 
 ui_select={
