@@ -200,4 +200,5 @@ parameters/looping = true
 [connection signal="pressed" from="Container/HBoxContainer/FiftyPercent" to="Container" method="_on_fifty_percent_pressed"]
 [connection signal="pressed" from="Container/HBoxContainer/HundredPercent" to="Container" method="_on_hundred_percent_pressed"]
 [connection signal="pressed" from="Container/InsertCash" to="Container" method="_on_insert_cash_pressed"]
+[connection signal="pressed" from="Container/CashOut" to="Container" method="_on_cash_out_pressed"]
 [connection signal="timeout" from="Container/Timer" to="Container" method="_on_timer_timeout"]
