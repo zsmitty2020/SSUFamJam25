@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d37dlgip2sl1p" path="res://Windows/Flappy_Fly/Flappy_Fly_Window.gd" id="1_7dtey"]
 [ext_resource type="Texture2D" uid="uid://vy538p25rpem" path="res://Windows/Flappy_Fly/fly_assets/CityBackground.png" id="2_mvl0o"]
-[ext_resource type="Script" uid="uid://btttgea8qh7yp" path="res://Windows/Flappy_Fly/flappy_fly_window_2.gd" id="3_0oupv"]
+[ext_resource type="Script" uid="uid://pputyl8q8tse" path="res://Windows/Flappy_Fly/close_game.gd" id="3_0oupv"]
 [ext_resource type="Script" uid="uid://cs04vfktth2ab" path="res://Windows/Flappy_Fly/city_background.gd" id="3_p0xni"]
 [ext_resource type="PackedScene" uid="uid://b1c0wg7e8jvj" path="res://Windows/Flappy_Fly/fly_player.tscn" id="4_7pej5"]
 [ext_resource type="PackedScene" uid="uid://dxsi26nmolsmi" path="res://Windows/Flappy_Fly/building_maker.tscn" id="4_35km8"]

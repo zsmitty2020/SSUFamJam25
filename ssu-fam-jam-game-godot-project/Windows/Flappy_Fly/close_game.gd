@@ -1,6 +1,7 @@
 extends TextureRect
 
 
+
 func _on_flappy_fly_close_requested() -> void:
 	GlobalData.open_tabs.erase("Flappy_Fly")
 	get_parent().queue_free()
