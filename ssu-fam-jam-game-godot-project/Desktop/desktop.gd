@@ -19,4 +19,8 @@ func _on_viewport_size_changed():
 
 
 func _on_shut_down_pressed() -> void:
+	GlobalData.previous_accounts.previous_accounts.insert(0, GlobalData.balance)
+	while GlobalData.previous_accounts.previous_accounts.size() > 10:
+		GlobalData.previous_accounts.previous_accounts.remove_at(GlobalData.previous_accounts.previous_accounts.size()-1)
+	GlobalData.previous_accounts.write_save()
 	get_tree().quit()
