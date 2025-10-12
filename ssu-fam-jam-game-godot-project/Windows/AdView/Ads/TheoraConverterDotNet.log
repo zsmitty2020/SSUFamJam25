@@ -1,0 +1,24 @@
+----------------------------------------------------------------------------
+Theora Converter .NET
+Saturday, October 11, 2025 11:26:26 PM
+
+ffmpeg2theora options: 
+ --videobitrate 1000 --pp default --audiobitrate 128 --two-pass --soft-target --contact "http://sourceforge.net/projects/theoraconverter"
+Output Folder: C:\Users\Owner\Desktop\SSUFamJam25\ssu-fam-jam-game-godot-project\Windows\AdView\Ads
+Converting: 'ctvc_BAYER_512kb.mp4', (2 MB)
+Converting: 'ctvc_CHESTER_512kb.mp4', (4.1 MB)
+Converting: 'ctvc_FOAMY_512kb.mp4', (2.1 MB)
+Converting: 'ctvc_GLO_512kb.mp4', (2.7 MB)
+Converting: 'ctvc_JELLO_512kb.mp4', (6.1 MB)
+Converting: 'ctvc_JOE_512kb.mp4', (2.1 MB)
+Converting: 'ctvc_KAISER_512kb.mp4', (4.1 MB)
+Converting: 'ctvc_KEATON_512kb.mp4', (4.1 MB)
+Converting: 'ctvc_LNM_512kb.mp4', (3.2 MB)
+Converting: 'ctvc_LNM02_512kb.mp4', (.9 MB)
+Converting: 'ctvc_MILKOMAG_512kb.mp4', (2 MB)
+Converting: 'ctvc_PET02_512kb.mp4', (2.1 MB)
+Converting: 'ctvc_PLAYTEX_512kb.mp4', (4.1 MB)
+Converting: 'ctvc_PROM_512kb.mp4', (2.2 MB)
+Completed:  'ctvc_LNM02_512kb.ogv', (1.7 MB) in  minutes.
+Converting: 'ctvc_SHOE_512kb.mp4', (2 MB)
+Converting: 'ctvc_SOFTIQUE_512kb.mp4', (2 MB)

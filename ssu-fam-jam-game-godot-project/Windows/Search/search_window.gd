@@ -48,7 +48,7 @@ func _on_adview_meta_clicked(_meta: Variant) -> void:
 		GlobalData.open_tabs.append("adview")
 
 
-func _on_slotsgambling_meta_clicked(_meta):
+func _on_slotsgambling_meta_clicked(_meta: Variant) -> void:
 	if GlobalData.open_tabs.find("slotsgambling")==-1:
 		var temp = preload("res://Windows/SlotsGambling/slotsgambling.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
@@ -74,3 +74,10 @@ func _on_sparrow_meta_clicked(_meta: Variant) -> void:
 		var temp = preload("res://Windows/Sparrow/sparrow_window.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("sparrow")
+
+
+func _on_blackoutsurvival_meta_clicked(_meta: Variant) -> void:
+	if GlobalData.open_tabs.find("blackoutsurvival")==-1:
+		var temp = preload("res://Windows/GameTester/blackout_survival.tscn").instantiate()
+		get_tree().get_root().add_child(temp)
+		GlobalData.open_tabs.append("blackoutsurvival")

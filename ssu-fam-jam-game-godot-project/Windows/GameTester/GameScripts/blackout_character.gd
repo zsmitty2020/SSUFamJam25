@@ -1,6 +1,11 @@
 extends CharacterBody3D
 
 const SPEED = 5.0
+var playerHealth = 100
+var inIce = false
+
+func _ready():
+	$SubViewport/ProgressBar.value = playerHealth
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -19,3 +24,14 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func _on_timer_timeout():
+	if inIce:
+		playerHealth += 10
+		if playerHealth >= 100:
+			playerHealth = 100
+	else:
+		playerHealth -= 10
+		if playerHealth <= 0:
+			get_tree().get_root().get_node("BlackoutSurvival").endGame()
+	$SubViewport/ProgressBar.value = playerHealth

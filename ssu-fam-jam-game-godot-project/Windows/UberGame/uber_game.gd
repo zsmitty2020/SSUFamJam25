@@ -11,6 +11,7 @@ func _ready() -> void:
 		for i in range(1, GlobalData.inventory["Total Cars"] + 1):
 			car_cost *= 1.127
 		#print("started")
+	$VBoxContainer/BuyButton.text = "Buy Self-Driving Car: %d" %car_cost
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,4 +47,4 @@ func _on_buy_button_pressed() -> void:
 		$NewTrip.start()
 		car_cost = car_cost * 1.127
 		$VBoxContainer/BuyButton.text = "Buy Self-Driving Car: %d" %car_cost
-	
+		$VBoxContainer/CarsOwned.text = "Cars Owned: %d" %GlobalData.inventory["Total Cars"]

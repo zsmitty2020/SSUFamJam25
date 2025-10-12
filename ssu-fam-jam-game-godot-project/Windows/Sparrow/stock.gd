@@ -14,6 +14,7 @@ var current_stock = ""
 
 var price_history = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 var price = 0
+var old_price = 0
 
 
 func _ready() -> void:
@@ -22,6 +23,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	stock_timer -= delta
+	if old_price != price:
+		old_price = price
+		$AudioStreamPlayer.play()
 	if stock_timer < 0:
 		stock_timer = stock_time
 		display_stock(current_stock)

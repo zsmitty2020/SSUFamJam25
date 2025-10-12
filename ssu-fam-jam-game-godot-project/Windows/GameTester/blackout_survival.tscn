@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcdftaac04bv1"]
+[gd_scene load_steps=20 format=3 uid="uid://dcdftaac04bv1"]
 
 [ext_resource type="Script" uid="uid://6qbv44pbq0rh" path="res://Windows/GameTester/blackout_survival.gd" id="1_7dfcd"]
 [ext_resource type="PackedScene" uid="uid://bq1l4qy8cojw" path="res://Windows/GameTester/GameObjects/BurningTree1.tscn" id="1_ksrp4"]
@@ -14,11 +14,38 @@ material = SubResource("StandardMaterial3D_yyud0")
 size = Vector2(100, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_62ngu"]
-size = Vector3(50, 50, 50)
+size = Vector3(50, 10, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qgtr1"]
+size = Vector3(50, 10, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ri7xh"]
+size = Vector3(1, 10, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lijqi"]
+size = Vector3(1, 10, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yyud0"]
+size = Vector3(100, 1, 100)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6o86b"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5crbl"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_62ngu"]
+viewport_path = NodePath("BlackoutSurvivalBaseNode/blackoutCharacter/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyud0"]
+bg_color = Color(1, 0, 0.08235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgtr1"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_yyud0"]
+colors = PackedColorArray(0.35686275, 0.35686275, 0.35686275, 0.6156863, 0.35686275, 0.35686275, 0.35686275, 0.6156863)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qgtr1"]
+gradient = SubResource("Gradient_yyud0")
 
 [node name="BlackoutSurvival" type="Window"]
 oversampling_override = 1.0
@@ -74,22 +101,122 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.389471, 0, -20.418865)
 [node name="BurningTree11" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("3_62ngu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.457115, 0, -17.00858)
 
+[node name="BurningTree12" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("3_62ngu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.432846, 0.17046416, 3.400134)
+
+[node name="BurningTree13" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("2_7dfcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.070211, 0.20648068, 2.2602634)
+
+[node name="BurningTree14" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("1_ksrp4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.842299, 0.11895323, 9.471016)
+
+[node name="BurningTree15" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("2_7dfcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.329172, 0.20648068, -10.088979)
+
+[node name="BurningTree16" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("2_7dfcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.606655, 0.20648259, 7.311483)
+
+[node name="BurningTree17" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("1_ksrp4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.555058, 0.118955135, 20.305016)
+
+[node name="BurningTree18" parent="BlackoutSurvivalBaseNode/WorldGeometry/Trees" instance=ExtResource("3_62ngu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.76306, 0.17046416, 21.442934)
+
 [node name="WorldBoundary" type="StaticBody3D" parent="BlackoutSurvivalBaseNode/WorldGeometry"]
 
-[node name="WorldBoundaryCollision" type="CollisionShape3D" parent="BlackoutSurvivalBaseNode/WorldGeometry/WorldBoundary"]
+[node name="Wall1" type="CollisionShape3D" parent="BlackoutSurvivalBaseNode/WorldGeometry/WorldBoundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
 shape = SubResource("BoxShape3D_62ngu")
+
+[node name="Wall2" type="CollisionShape3D" parent="BlackoutSurvivalBaseNode/WorldGeometry/WorldBoundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+shape = SubResource("BoxShape3D_qgtr1")
+
+[node name="Wall3" type="CollisionShape3D" parent="BlackoutSurvivalBaseNode/WorldGeometry/WorldBoundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+shape = SubResource("BoxShape3D_ri7xh")
+
+[node name="Wall4" type="CollisionShape3D" parent="BlackoutSurvivalBaseNode/WorldGeometry/WorldBoundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+shape = SubResource("BoxShape3D_lijqi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BlackoutSurvivalBaseNode/WorldGeometry"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlackoutSurvivalBaseNode/WorldGeometry/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38104677, 0)
+shape = SubResource("BoxShape3D_yyud0")
 
 [node name="IceBox" type="Node3D" parent="BlackoutSurvivalBaseNode"]
 
-[node name="blackoutCharacter" type="CharacterBody3D" parent="BlackoutSurvivalBaseNode"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.060394, 0)
+[node name="blackoutCharacter" type="CharacterBody3D" parent="BlackoutSurvivalBaseNode" groups=["blackoutCharacter"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6418772, 0)
 script = ExtResource("5_62ngu")
 
-[node name="Camera3D" type="Camera3D" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
-transform = Transform3D(1, 0, 0, 0, 0.7720019, 0.63562024, 0, -0.63562024, 0.7720019, 0, 9.642914, 6.5886917)
+[node name="Timer" type="Timer" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
+autostart = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
+[node name="Camera3D" type="Camera3D" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
+transform = Transform3D(1, 0, 0, 0, 0.62246, 0.78265166, 0, -0.78265166, 0.62246, 0, 8.394767, 6.161374)
+
+[node name="characterCollision" type="CollisionShape3D" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
 shape = SubResource("CapsuleShape3D_6o86b")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
+[node name="characterMesh" type="MeshInstance3D" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
 mesh = SubResource("CapsuleMesh_5crbl")
+
+[node name="Sprite3D" type="Sprite3D" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4499416, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_62ngu")
+
+[node name="SubViewport" type="SubViewport" parent="BlackoutSurvivalBaseNode/blackoutCharacter"]
+size = Vector2i(196, 27)
+
+[node name="ProgressBar" type="ProgressBar" parent="BlackoutSurvivalBaseNode/blackoutCharacter/SubViewport"]
+offset_right = 196.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_yyud0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qgtr1")
+value = 100.0
+show_percentage = false
+
+[node name="IceSpawner" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="ControllerNotice" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_qgtr1")
+
+[node name="Label" type="Label" parent="ControllerNotice"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -11.5
+offset_right = 187.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Notice: A controller is required to test this game."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Money Earned: $0.00"
+
+[node name="MoneyTimer" type="Timer" parent="."]
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="timeout" from="BlackoutSurvivalBaseNode/blackoutCharacter/Timer" to="BlackoutSurvivalBaseNode/blackoutCharacter" method="_on_timer_timeout"]
+[connection signal="timeout" from="IceSpawner" to="." method="_on_ice_spawner_timeout"]
+[connection signal="timeout" from="MoneyTimer" to="." method="_on_money_timer_timeout"]

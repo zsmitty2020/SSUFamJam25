@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dujtg6ikoco2h"]
+[gd_scene load_steps=3 format=3 uid="uid://dujtg6ikoco2h"]
 
 [ext_resource type="Script" uid="uid://ckexixjt1s3x" path="res://Desktop/BlueScreen/blue_screen.gd" id="1_4eh24"]
+[ext_resource type="AudioStream" uid="uid://bbqad4mah1yld" path="res://Desktop/crash.ogg" id="2_0xuwo"]
 
 [node name="BlueScreen" type="ColorRect"]
 anchors_preset = 15
@@ -41,3 +42,7 @@ In order to resolve the problem, A full factory reset of your device is required
 If you do this, all of your active programs will be closed and you will lose all of your saved data
 
 Press any key to continue _"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0xuwo")
+autoplay = true
