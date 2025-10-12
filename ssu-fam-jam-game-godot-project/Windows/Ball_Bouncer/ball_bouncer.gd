@@ -1,9 +1,9 @@
 extends TextureRect
 
 var balls = preload("res://Windows/Ball_Bouncer/ball.tscn")
-var create_ball_price = 75.0
-var speed_price = 50.0
-var bounce_value_price = 150.0
+var create_ball_price = 25.0
+var speed_price = 20.0
+var bounce_value_price = 75.0
 var ball_amount = 0
 
 
@@ -36,7 +36,7 @@ func _on_purchase_speed_button_pressed() -> void:
 				GlobalData.balance -= speed_price
 				i.speed += 0.75
 				i.speed_upgrade_amount += 1
-				speed_price += 50.0
+				speed_price += 45.0
 
 
 func _on_purchase_bounce_value_button_pressed() -> void:
@@ -44,6 +44,6 @@ func _on_purchase_bounce_value_button_pressed() -> void:
 		if i.value_upgrade_amount < 10:
 			if GlobalData.balance >= bounce_value_price:
 				GlobalData.balance -= bounce_value_price
-				i.bounce_value += 0.01
+				i.bounce_value += 0.05
 				i.value_upgrade_amount += 1
-				bounce_value_price += 150.0
+				bounce_value_price += 95.0

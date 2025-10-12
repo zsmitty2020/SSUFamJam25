@@ -5,7 +5,7 @@ var speed_upgrade_amount = 0
 var value_upgrade_amount = 0
 
 @export var speed = 0.75
-var bounce_value = 0.01
+var bounce_value = 0.05
 
 func _on_ball_ready() -> void:
 	position.x = randi_range(10,320)
