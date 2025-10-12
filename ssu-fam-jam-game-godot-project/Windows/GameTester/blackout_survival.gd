@@ -50,7 +50,7 @@ func _on_ice_spawner_timeout():
 
 func addMoney():
 	money += 0.01
-	$MoneyLabel.text = "Money Earned: $" + str(snappedf(money,0.01))
+	$MoneyLabel.text = "Money Earned On Death: $" + str(snappedf(money,0.01))
 
 func cashOut():
 	GlobalData.balance += money

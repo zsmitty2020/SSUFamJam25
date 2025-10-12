@@ -1,5 +1,7 @@
 extends Node
 
+var previous_accounts = Save.new()
+
 var inventory = {"Active Cars":0,"Total Cars":0}
 var balance:float = 0.00
 var open_tabs:Array[String] = []
@@ -21,11 +23,16 @@ var stocks:Dictionary[String, Array] = {}
 var volatility:Dictionary[String, float] = {}
 var volatility_cycle:Dictionary[String, int] = {}
 var stockpeak = 200
-var stockmin = 0.01
+var stockmin = 1.00
 var stocktime = 15
 var stocktimer = stocktime
 
 func _ready():
+	if ResourceLoader.exists("user://saveData.tres"):
+		previous_accounts = previous_accounts.load_save()
+	else:
+		previous_accounts.write_save()
+	
 	var letters:Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 	var title:String = ""
 	for i in range(10):
@@ -67,10 +74,14 @@ func update_stock(stock_name:String):
 	volatility_cycle[stock_name] -= 1
 	if volatility_cycle[stock_name] <= 0:
 		volatility_cycle[stock_name] = randi_range(1, 10)
-		volatility[stock_name] = randf_range(0.01, 10)
+		volatility[stock_name] = randf_range(0.01, 3)
 
 
 func reset():
+	previous_accounts.previous_accounts.insert(0, balance)
+	while previous_accounts.previous_accounts.size() > 10:
+		previous_accounts.previous_accounts.remove_at(previous_accounts.previous_accounts.size()-1)
+	previous_accounts.write_save()
 	inventory = {"Active Cars":0,"Total Cars":0}
 	balance = 0.0
 	open_tabs = []

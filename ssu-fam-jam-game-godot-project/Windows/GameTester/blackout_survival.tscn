@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://dcdftaac04bv1"]
+[gd_scene load_steps=21 format=3 uid="uid://dcdftaac04bv1"]
 
 [ext_resource type="Script" uid="uid://6qbv44pbq0rh" path="res://Windows/GameTester/blackout_survival.gd" id="1_7dfcd"]
 [ext_resource type="PackedScene" uid="uid://bq1l4qy8cojw" path="res://Windows/GameTester/GameObjects/BurningTree1.tscn" id="1_ksrp4"]
 [ext_resource type="PackedScene" uid="uid://bejucjo8tm1l8" path="res://Windows/GameTester/GameObjects/BurningTree2.tscn" id="2_7dfcd"]
 [ext_resource type="PackedScene" uid="uid://7ymiqvrv4i4w" path="res://Windows/GameTester/GameObjects/BurningTree3.tscn" id="3_62ngu"]
 [ext_resource type="Script" uid="uid://clkr0muthwoo7" path="res://Windows/GameTester/GameScripts/blackout_character.gd" id="5_62ngu"]
+[ext_resource type="AudioStream" uid="uid://xx7dem705blg" path="res://Windows/GameTester/GameAudio/fireCracklingAmbience.ogg" id="6_yyud0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yyud0"]
 albedo_color = Color(0, 0, 0, 1)
@@ -212,9 +213,14 @@ vertical_alignment = 1
 [node name="MoneyLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Money Earned: $0.00"
+text = "Money Earned On Death: $0.00"
 
 [node name="MoneyTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_yyud0")
+autoplay = true
+parameters/looping = true
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="timeout" from="BlackoutSurvivalBaseNode/blackoutCharacter/Timer" to="BlackoutSurvivalBaseNode/blackoutCharacter" method="_on_timer_timeout"]

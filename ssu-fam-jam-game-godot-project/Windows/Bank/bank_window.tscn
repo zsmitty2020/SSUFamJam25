@@ -13,7 +13,7 @@ fill = 1
 [node name="BankWindow" type="Window"]
 oversampling_override = 1.0
 title = "PPB Bank: Your Account"
-position = Vector2i(7, 31)
+position = Vector2i(7, 36)
 size = Vector2i(800, 600)
 
 [node name="BankWindow" type="TextureRect" parent="."]
@@ -48,5 +48,16 @@ text = "Bank with the best!"
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5264226, 0.5264226, 0.5264226, 1)
 text = "You have a balance of:"
+
+[node name="Label3" type="Label" parent="BankWindow/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.27387887, 0.29932642, 0.7417006, 1)
+theme_override_font_sizes/font_size = 19
+text = "Previous Accounts on Record"
+
+[node name="Label4" type="Label" parent="BankWindow/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5264226, 0.5264226, 0.5264226, 1)
+text = "No previous accounts on record"
 
 [connection signal="close_requested" from="." to="BankWindow" method="_on_bank_window_close_requested"]
