@@ -22,3 +22,13 @@ Converting: 'ctvc_PROM_512kb.mp4', (2.2 MB)
 Completed:  'ctvc_LNM02_512kb.ogv', (1.7 MB) in  minutes.
 Converting: 'ctvc_SHOE_512kb.mp4', (2 MB)
 Converting: 'ctvc_SOFTIQUE_512kb.mp4', (2 MB)
+----------------------------------------------------------------------------
+Theora Converter .NET
+Sunday, October 12, 2025 2:16:52 PM
+
+ffmpeg2theora options: 
+ --videobitrate 1000 --pp default --audiobitrate 128 --two-pass --soft-target --contact "http://sourceforge.net/projects/theoraconverter"
+Output Folder: C:\Users\Owner\Desktop\SSUFamJam25\ssu-fam-jam-game-godot-project\Windows\AdView\Ads
+Converting: 'IMG_5834.mov', (9.5 MB)
+Completed:  'IMG_5834.ogv', (4.2 MB) in .9 minutes.
+Finished processing all files at 10/12/2025 2:17 PM
