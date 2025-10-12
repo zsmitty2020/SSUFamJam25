@@ -16,3 +16,7 @@ func _on_viewport_size_changed():
 	var viewport_size = get_tree().root.size
 	set_size(viewport_size)
 	#print("thing")
+
+
+func _on_shut_down_pressed() -> void:
+	get_tree().quit()
