@@ -165,6 +165,23 @@ bbcode_enabled = true
 text = "Ever wish you could make extra money with your rare spare time? Spend your time earning!"
 fit_content = true
 
+[node name="BlackoutSurvival" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
+layout_mode = 2
+
+[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/BlackoutSurvival"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.08235294, 0.49411765, 0.69803923, 1)
+bbcode_enabled = true
+text = "[url]Playtest Blackout Survival![/url]"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/BlackoutSurvival"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.69411767, 0.69411767, 0.69411767, 1)
+bbcode_enabled = true
+text = "Playtest our brand new survival game, Blackout Survival, as seen on our many ads from the Internet."
+fit_content = true
+
 [node name="SlotsGambling" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
 layout_mode = 2
 
@@ -240,6 +257,7 @@ fit_content = true
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Converse/Url" to="SearchWindow" method="_on_converse_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/FreeJob/Url" to="SearchWindow" method="_on_freejob_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/AdView/Url" to="SearchWindow" method="_on_adview_meta_clicked"]
+[connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/BlackoutSurvival/Url" to="SearchWindow" method="_on_blackoutsurvival_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/SlotsGambling/Url" to="SearchWindow" method="_on_slotsgambling_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Dryft/Url" to="SearchWindow" method="_on_dryft_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/BallBouncer/Url" to="SearchWindow" method="_on_ball_bouncer_meta_clicked"]

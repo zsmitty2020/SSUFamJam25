@@ -1,9 +1,48 @@
-[gd_scene format=3 uid="uid://cyenfnqvxptex"]
+[gd_scene load_steps=3 format=3 uid="uid://cyenfnqvxptex"]
+
+[ext_resource type="Texture2D" uid="uid://dvqkyv7qwyee4" path="res://Windows/Sahara/controller.png" id="1_aq3iu"]
+[ext_resource type="Script" uid="uid://dnwi05w607hfj" path="res://Windows/Sahara/sahara_listing.gd" id="1_jdaqq"]
 
 [node name="SaharaListing" type="Control"]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+script = ExtResource("1_jdaqq")
+image = ExtResource("1_aq3iu")
+item_name = "Item Name"
+item_description = "Item Description"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 226.0
+offset_bottom = 72.0
+theme_override_constants/separation = 40
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_aq3iu")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="Item Name" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Label"
+
+[node name="Item Description" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Label"
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "     Buy Now!     "
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
