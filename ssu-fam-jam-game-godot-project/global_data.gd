@@ -17,6 +17,28 @@ var adview_bank = 0
 var update_timer = 30
 var num_updates = 0
 
+var stocks:Dictionary[String, Array] = {}
+var volatility:Dictionary[String, float] = {}
+var volatility_cycle:Dictionary[String, int] = {}
+var stockpeak = 200
+var stockmin = 0.01
+var stocktime = 15
+var stocktimer = stocktime
+
+func _ready():
+	var letters:Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+	var title:String = ""
+	for i in range(10):
+		title = ""
+		for v in range(3):
+			title += letters.pick_random()
+		stocks[title] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+		volatility[title] = randf_range(0.01, 10)
+		volatility_cycle[title] = randi_range(1, 10)
+	for i in stocks.keys():
+		for v in range(25):
+			update_stock(i)
+
 func _process(delta: float) -> void:
 	update_timer -= delta
 	if update_timer < 0:
@@ -27,6 +49,26 @@ func _process(delta: float) -> void:
 	if survey_timer < 0:
 		survey_count += 3
 		survey_timer = survey_time
+	stocktimer -= delta
+	if stocktimer < 0:
+		stocktimer = stocktime
+		for i in stocks.keys():
+			update_stock(i)
+
+
+func update_stock(stock_name:String):
+	var price = stocks[stock_name][stocks[stock_name].size()-1]
+	if randi()%2==1:
+		price = min(stockpeak, price+volatility[stock_name])
+	else:
+		price = max(stockmin, price-volatility[stock_name])
+	stocks[stock_name].append(price)
+	stocks[stock_name].remove_at(0)
+	volatility_cycle[stock_name] -= 1
+	if volatility_cycle[stock_name] <= 0:
+		volatility_cycle[stock_name] = randi_range(1, 10)
+		volatility[stock_name] = randf_range(0.01, 10)
+
 
 func reset():
 	inventory = {"Active Cars":0,"Total Cars":0}
@@ -41,3 +83,22 @@ func reset():
 	adview_bank = 0
 	update_timer = 30
 	num_updates = 0
+	stocks = {}
+	volatility = {}
+	volatility_cycle = {}
+	stockpeak = 200
+	stockmin = 0.01
+	stocktime = 15
+	stocktimer = stocktime
+	var letters:Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+	var title:String = ""
+	for i in range(10):
+		title = ""
+		for v in range(3):
+			title += letters.pick_random()
+		stocks[title] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+		volatility[title] = randf_range(0.01, 10)
+		volatility_cycle[title] = randi_range(1, 10)
+	for i in stocks.keys():
+		for v in range(25):
+			update_stock(i)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qjrp3qiejber" path="res://Windows/Ball_Bouncer/Ball_Bouncer_Assets/button.png" id="2_4tkpc"]
 [ext_resource type="Texture2D" uid="uid://cbdsvd4kgn8vo" path="res://Windows/Ball_Bouncer/Ball_Bouncer_Assets/Ball_Title/ball_title0.png" id="3_1r02p"]
 [ext_resource type="Texture2D" uid="uid://bsym4jw628u35" path="res://Windows/Ball_Bouncer/Ball_Bouncer_Assets/Ball_Title/ball_title1.png" id="4_63o82"]
-[ext_resource type="Script" uid="uid://c74orb5qhmo40" path="res://Windows/Ball_Bouncer/animated_sprite_2d.gd" id="5_63o82"]
+[ext_resource type="Script" path="res://Windows/Ball_Bouncer/animated_sprite_2d.gd" id="5_63o82"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_pcvo7"]
 
