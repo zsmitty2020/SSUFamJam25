@@ -5,14 +5,23 @@ var listing:PackedScene = preload("res://Windows/UberGame/listed_car.tscn")
 var car_cost:float = 500.00
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.size_changed.connect(_on_viewport_size_changed)
+	_on_viewport_size_changed()
+
+	
+
+
 	if GlobalData.inventory["Total Cars"] > 0:
 		$VBoxContainer/CarsOwned.text = "Cars Owned: %d" %GlobalData.inventory["Total Cars"]
 		$NewTrip.start()
 		for i in range(1, GlobalData.inventory["Total Cars"] + 1):
 			car_cost *= 1.127
 		#print("started")
-	$VBoxContainer/BuyButton.text = "Buy Self-Driving Car: %d" %car_cost
 
+func _on_viewport_size_changed():
+	var viewport_size = self.size
+	$TextureRect.set_size(viewport_size)
+	#print("thing")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -38,13 +47,3 @@ func _on_new_trip_timeout() -> void:
 func _on_close_requested() -> void:
 	GlobalData.open_tabs.erase("dryft")
 	self.queue_free()
-
-
-func _on_buy_button_pressed() -> void:
-	if GlobalData.balance >= car_cost:
-		GlobalData.balance -= car_cost
-		GlobalData.inventory["Total Cars"] += 1
-		$NewTrip.start()
-		car_cost = car_cost * 1.127
-		$VBoxContainer/BuyButton.text = "Buy Self-Driving Car: %d" %car_cost
-		$VBoxContainer/CarsOwned.text = "Cars Owned: %d" %GlobalData.inventory["Total Cars"]

@@ -81,3 +81,9 @@ func _on_blackoutsurvival_meta_clicked(_meta: Variant) -> void:
 		var temp = preload("res://Windows/GameTester/blackout_survival.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("blackoutsurvival")
+		
+func _on_sahara_meta_clicked(meta: Variant) -> void:
+	if GlobalData.open_tabs.find("Sahara")==-1:
+		var temp = preload("res://Windows/Sahara/sahara.tscn").instantiate()
+		get_tree().get_root().add_child(temp)
+		GlobalData.open_tabs.append("Sahara")

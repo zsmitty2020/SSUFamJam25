@@ -7,7 +7,6 @@
 
 [node name="Window" type="Window"]
 oversampling_override = 1.0
-position = Vector2i(0, 36)
 size = Vector2i(800, 600)
 script = ExtResource("2_rc4ii")
 
@@ -43,18 +42,15 @@ layout_mode = 2
 size_flags_horizontal = 0
 item_name = "Game Controller"
 item_description = "Top of the line game controller for game testing"
-item_cost = 29.99
-dict_key = "Controller"
-dict_value = 1
 
 [node name="SaharaListing2" parent="Sahara/ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_h28tj")]
 layout_mode = 2
 image = ExtResource("4_6x0ry")
 item_name = "Self Driving Car"
 item_description = "Great purchase for Dryft drivers!"
-item_cost = 499.0
+item_cost = 500.0
 dict_key = "Total Cars"
 dict_value = 1
 multipurchase = true
 
-[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="close_requested" from="." to="Sahara" method="_on_window_close_requested"]

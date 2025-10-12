@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw0haey73hmno"]
+[gd_scene load_steps=3 format=3 uid="uid://dw0haey73hmno"]
 
 [ext_resource type="Script" uid="uid://ccexsg27m1vo8" path="res://Windows/UberGame/uber_game.gd" id="1_r0iro"]
+[ext_resource type="Texture2D" uid="uid://biulta4r6mjo2" path="res://Windows/UberGame/map_background.png" id="2_gia4n"]
 
 [node name="UberGame" type="Window"]
 oversampling_override = 1.0
@@ -8,6 +9,13 @@ title = "Dryft"
 initial_position = 1
 size = Vector2i(600, 400)
 script = ExtResource("1_r0iro")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 800.0
+offset_bottom = 600.0
+size_flags_horizontal = 0
+texture = ExtResource("2_gia4n")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_right = 604.0
@@ -19,10 +27,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Cars Owned: 0"
 
-[node name="BuyButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Buy Self-Driving Car: $500.00"
-
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 375)
 layout_mode = 2
@@ -33,5 +37,4 @@ layout_mode = 2
 [node name="NewTrip" type="Timer" parent="."]
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
-[connection signal="pressed" from="VBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]
 [connection signal="timeout" from="NewTrip" to="." method="_on_new_trip_timeout"]
