@@ -1,13 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://1xd7ml5km5on"]
 
 [ext_resource type="Texture2D" uid="uid://o22b1ejcsu2o" path="res://Windows/Sahara/sahara_background.png" id="1_js420"]
-[ext_resource type="Script" path="res://Windows/Sahara/sahara.gd" id="2_rc4ii"]
+[ext_resource type="Script" uid="uid://df2sl046xw448" path="res://Windows/Sahara/sahara.gd" id="2_rc4ii"]
 [ext_resource type="PackedScene" uid="uid://cyenfnqvxptex" path="res://Windows/Sahara/sahara_listing.tscn" id="3_h28tj"]
 [ext_resource type="Texture2D" uid="uid://ba7llufkcno2t" path="res://Windows/UberGame/Car.png" id="4_6x0ry"]
 [ext_resource type="Texture2D" uid="uid://bbaxx77af50my" path="res://Desktop/doodlr.png" id="5_h28tj"]
 
 [node name="Window" type="Window"]
 oversampling_override = 1.0
+title = "Sahara Marketplace"
 position = Vector2i(0, 36)
 size = Vector2i(800, 600)
 script = ExtResource("2_rc4ii")

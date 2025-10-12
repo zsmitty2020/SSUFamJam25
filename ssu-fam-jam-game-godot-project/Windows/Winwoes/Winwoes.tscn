@@ -13,6 +13,7 @@ fill_from = Vector2(0.15962441, 0.86384976)
 
 [node name="Winwoes" type="Window"]
 oversampling_override = 1.0
+title = "Restart Required!"
 position = Vector2i(7, 36)
 size = Vector2i(350, 200)
 
