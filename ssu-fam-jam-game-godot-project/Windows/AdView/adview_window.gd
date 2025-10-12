@@ -1,6 +1,7 @@
 extends TextureRect
 
 var just_maxed:bool = false
+@export var ads:Array[CompressedTexture2D]
 
 func _ready() -> void:
 	var dir := DirAccess.open("res://Windows/AdView/Ads/")
@@ -23,12 +24,7 @@ func _process(delta: float) -> void:
 		if not just_maxed:
 			just_maxed = true
 			$ImageAd.visible = true
-			var dir := DirAccess.open("res://Windows/AdView/Banners/")
-			var filenames := dir.get_files()
-			var random_file:String = ""
-			while not random_file.ends_with(".jpg"):
-				random_file = filenames[randi()%filenames.size()]
-			$ImageAd.texture = load("res://Windows/AdView/Banners/"+random_file)
+			$ImageAd.texture = ads.pick_random()
 			$ImageAd/Close.global_position = Vector2(randi_range(10,get_window().size.x-10), randi_range(10,get_window().size.y-10))
 	else:
 		if $VideoStreamPlayer.paused:

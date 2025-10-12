@@ -1,9 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnitxpbh4bf8f"]
+[gd_scene load_steps=13 format=3 uid="uid://bnitxpbh4bf8f"]
 
 [ext_resource type="Script" uid="uid://bdmsjgmi1yjt6" path="res://Windows/AdView/adview_window.gd" id="1_f8uj6"]
 [ext_resource type="Texture2D" uid="uid://b5o6pngijgjk5" path="res://icon.svg" id="2_ryqhe"]
+[ext_resource type="Texture2D" uid="uid://bwuqv28nlttnk" path="res://Windows/AdView/Banners/bird_wildlife_sky_clouds.jpg" id="2_wi5xc"]
 [ext_resource type="Texture2D" uid="uid://bwdw7gxl1mo3n" path="res://Windows/AdView/bannerTop.png" id="3_6ymsn"]
 [ext_resource type="AudioStream" uid="uid://bptgcm71sm6i" path="res://Windows/AdView/324404__joedeshon__film_static_03.ogg" id="3_ml4ue"]
+[ext_resource type="Texture2D" uid="uid://dalnagekvnr1t" path="res://Windows/AdView/Banners/bry.jpg" id="3_ulnt8"]
+[ext_resource type="Texture2D" uid="uid://dwwijf7haqcii" path="res://Windows/AdView/Banners/hand_key_house_keys.jpg" id="4_ugq8p"]
+[ext_resource type="Texture2D" uid="uid://cww2p6eev4eh1" path="res://Windows/AdView/Banners/kyle.jpg" id="5_wgmxu"]
+[ext_resource type="Texture2D" uid="uid://cn2sdy8kmjons" path="res://Windows/AdView/Banners/little_girl_in_forest.jpg" id="6_x4rqp"]
+[ext_resource type="Texture2D" uid="uid://bfuqwmkp0ddtt" path="res://Windows/AdView/Banners/woodland_path.jpg" id="7_rtw6y"]
 
 [sub_resource type="Gradient" id="Gradient_f8uj6"]
 
@@ -26,6 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_ryqhe")
 script = ExtResource("1_f8uj6")
+ads = Array[CompressedTexture2D]([ExtResource("2_wi5xc"), ExtResource("3_ulnt8"), ExtResource("4_ugq8p"), ExtResource("5_wgmxu"), ExtResource("6_x4rqp"), ExtResource("7_rtw6y")])
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AdviewWindow"]
 layout_mode = 1
