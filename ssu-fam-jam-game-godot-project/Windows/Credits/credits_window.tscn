@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://cijpwv7u7ay7p"]
+
+[ext_resource type="Texture2D" uid="uid://boebv5w4p8qc4" path="res://Desktop/TeamLogo.png" id="1_3jhy2"]
+[ext_resource type="Script" uid="uid://b0hg21fe45lnf" path="res://Windows/Credits/credits_window.gd" id="1_imfh3"]
+[ext_resource type="Texture2D" uid="uid://dt2j3jxiplcwl" path="res://Desktop/BrokenDoorLogoV1.png" id="2_p5ryc"]
+
+[sub_resource type="Gradient" id="Gradient_vkq0l"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3jhy2"]
+gradient = SubResource("Gradient_vkq0l")
+
+[sub_resource type="SystemFont" id="SystemFont_p5ryc"]
+font_names = PackedStringArray("Comic Sans MS")
+subpixel_positioning = 0
+
+[node name="CreditsWindow" type="Window"]
+oversampling_override = 1.0
+title = "Credits.txt"
+position = Vector2i(10, 30)
+size = Vector2i(800, 600)
+script = ExtResource("1_imfh3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_3jhy2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 392.0
+offset_bottom = 630.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_p5ryc")
+theme_override_font_sizes/font_size = 25
+text = "Todo- Write Credits...
+"
+
+[node name="Label2" type="Label" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_p5ryc")
+theme_override_font_sizes/font_size = 25
+text = "Broken Door Entertainment:
+Dog-Sama
+David McCool
+Zach Smith
+"
+
+[node name="Label3" type="Label" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_p5ryc")
+theme_override_font_sizes/font_size = 25
+text = "And She Was Here Too:
+Kylie Kouba"
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -220.0
+offset_right = 796.0
+offset_bottom = 656.0
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_p5ryc")
+stretch_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 210.0
+offset_top = -140.0
+offset_right = 634.1007
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3jhy2")
+stretch_mode = 2
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

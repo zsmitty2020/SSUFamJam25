@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk7d5g2uyc166"]
+
+[ext_resource type="Texture2D" uid="uid://cylqx8h3dv37u" path="res://Desktop/TextFileImage.png" id="1_afrb4"]
+[ext_resource type="Script" uid="uid://81jd7iut2hd0" path="res://Desktop/desktop_icons.gd" id="2_mpebe"]
+
+[node name="DesktopIcon" type="TextureButton"]
+offset_right = 32.0
+offset_bottom = 32.0
+texture_normal = ExtResource("1_afrb4")
+script = ExtResource("2_mpebe")
+metadata/_custom_type_script = "uid://81jd7iut2hd0"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_right = 40.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "credits.txt"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
