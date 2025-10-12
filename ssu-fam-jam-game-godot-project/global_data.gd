@@ -74,7 +74,7 @@ func update_stock(stock_name:String):
 	volatility_cycle[stock_name] -= 1
 	if volatility_cycle[stock_name] <= 0:
 		volatility_cycle[stock_name] = randi_range(1, 10)
-		volatility[stock_name] = randf_range(0.01, 10)
+		volatility[stock_name] = randf_range(1.00, 3)
 
 
 func reset():
