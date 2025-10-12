@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1usfi6g1cjh"]
+
+[ext_resource type="Script" uid="uid://dmtm3afuwomeb" path="res://Windows/Pop_Press/pop_press_window.gd" id="1_wji84"]
+
+[sub_resource type="Gradient" id="Gradient_rxg51"]
+colors = PackedColorArray(0.763662, 0.55669886, 0.5018058, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_84qbn"]
+gradient = SubResource("Gradient_rxg51")
+fill_from = Vector2(0.52136755, 0)
+fill_to = Vector2(0.50427353, 1)
+
+[node name="PopPressWindow" type="Window"]
+oversampling_override = 1.0
+title = "Pop Press: Product Design Made Easy"
+position = Vector2i(7, 31)
+size = Vector2i(500, 400)
+
+[node name="PopPressWindow" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_84qbn")
+script = ExtResource("1_wji84")
+
+[node name="Upload" type="Button" parent="PopPressWindow"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Upload New Design"
+
+[node name="Label" type="Label" parent="PopPressWindow"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.7260096, 0, 0.17873108, 1)
+theme_override_font_sizes/font_size = 28
+text = "Pop Press: Designs By You"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopPressWindow"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Designs" type="Label" parent="PopPressWindow/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Designs Uploaded: "
+
+[node name="Revenue" type="Label" parent="PopPressWindow/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Revenue Generated:"
+
+[connection signal="close_requested" from="." to="PopPressWindow" method="_on_pop_press_window_close_requested"]
+[connection signal="pressed" from="PopPressWindow/Upload" to="PopPressWindow" method="_on_upload_pressed"]

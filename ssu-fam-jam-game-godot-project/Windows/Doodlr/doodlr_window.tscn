@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4ihnaxoggmsl"]
+
+[ext_resource type="Script" uid="uid://d0mkjibk45hd0" path="res://Windows/Doodlr/doodlr_window.gd" id="1_ix8mk"]
+
+[sub_resource type="Gradient" id="Gradient_cwi6m"]
+colors = PackedColorArray(0.09331351, 0.06784592, 0.08729442, 1, 0.09411765, 0.06666667, 0.08627451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8vc02"]
+gradient = SubResource("Gradient_cwi6m")
+
+[node name="DoodlrWindow" type="Window"]
+oversampling_override = 1.0
+title = "Doodlr: Art Made Simple"
+position = Vector2i(7, 36)
+size = Vector2i(800, 600)
+
+[node name="DoodlrWindow" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_8vc02")
+script = ExtResource("1_ix8mk")
+
+[node name="ColorRect" type="ColorRect" parent="DoodlrWindow"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.5
+offset_top = -182.0
+offset_right = 232.5
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="DoodlrWindow/ColorRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -13.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewProject" type="Button" parent="DoodlrWindow"]
+layout_mode = 1
+offset_right = 102.0
+offset_bottom = 31.0
+text = "New Project"
+
+[node name="Export" type="Button" parent="DoodlrWindow"]
+visible = false
+layout_mode = 1
+offset_left = 103.0
+offset_right = 205.0
+offset_bottom = 31.0
+text = "Export"
+
+[node name="Warning" type="ColorRect" parent="DoodlrWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27058825, 0.27058825, 0.27058825, 0.6627451)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DoodlrWindow/Warning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="DoodlrWindow/Warning/VBoxContainer"]
+layout_mode = 2
+text = "Use of this software requires the purchase of a license."
+
+[node name="Button" type="Button" parent="DoodlrWindow/Warning/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Enter License Key"
+
+[connection signal="close_requested" from="." to="DoodlrWindow" method="_on_doodlr_window_close_requested"]
+[connection signal="focus_entered" from="." to="DoodlrWindow" method="_on_doodlr_window_focus_entered"]
+[connection signal="focus_exited" from="." to="DoodlrWindow" method="_on_doodlr_window_focus_exited"]
+[connection signal="pressed" from="DoodlrWindow/NewProject" to="DoodlrWindow" method="_on_new_project_pressed"]
+[connection signal="pressed" from="DoodlrWindow/Export" to="DoodlrWindow" method="_on_export_pressed"]
+[connection signal="pressed" from="DoodlrWindow/Warning/VBoxContainer/Button" to="DoodlrWindow" method="_on_button_pressed"]

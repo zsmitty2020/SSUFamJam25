@@ -27,6 +27,12 @@ var stockmin = 1.00
 var stocktime = 15
 var stocktimer = stocktime
 
+var license_key = null
+var art_finished = false
+var designs = []
+var art_time = 2
+var art_timer = art_time
+
 func _ready():
 	if ResourceLoader.exists("user://saveData.tres"):
 		previous_accounts = previous_accounts.load_save()
@@ -61,6 +67,13 @@ func _process(delta: float) -> void:
 		stocktimer = stocktime
 		for i in stocks.keys():
 			update_stock(i)
+	art_timer -= delta
+	if art_timer < 0:
+		art_timer = art_time
+		for i in designs:
+			var temp = randf_range(0.01, 0.05)
+			i += temp
+			balance += temp
 
 
 func update_stock(stock_name:String):

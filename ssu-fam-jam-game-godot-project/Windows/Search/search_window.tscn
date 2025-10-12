@@ -257,7 +257,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/default_color = Color(0.08235294, 0.49411765, 0.69803923, 1)
 bbcode_enabled = true
-text = "[url]Sahara"
+text = "[url]Sahara[/url]"
 fit_content = true
 
 [node name="Description" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/Sahara"]
@@ -265,6 +265,23 @@ layout_mode = 2
 theme_override_colors/default_color = Color(0.69411767, 0.69411767, 0.69411767, 1)
 bbcode_enabled = true
 text = "Anything you can imagine ready to purchase! Same second shipping!"
+fit_content = true
+
+[node name="PopPress" type="VBoxContainer" parent="SearchWindow/SearchResults/VBoxContainer"]
+layout_mode = 2
+
+[node name="Url" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/PopPress"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.08235294, 0.49411765, 0.69803923, 1)
+bbcode_enabled = true
+text = "[url]Pop Press[/url]"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="SearchWindow/SearchResults/VBoxContainer/PopPress"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.69411767, 0.69411767, 0.69411767, 1)
+bbcode_enabled = true
+text = "Creating product designs has never been this easy!"
 fit_content = true
 
 [connection signal="close_requested" from="." to="SearchWindow" method="_on_search_window_close_requested"]
@@ -280,3 +297,4 @@ fit_content = true
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/BallBouncer/Url" to="SearchWindow" method="_on_ball_bouncer_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/SparrowStock/Url" to="SearchWindow" method="_on_sparrow_meta_clicked"]
 [connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/Sahara/Url" to="SearchWindow" method="_on_sahara_meta_clicked"]
+[connection signal="meta_clicked" from="SearchWindow/SearchResults/VBoxContainer/PopPress/Url" to="SearchWindow" method="_on_poppress_meta_clicked"]

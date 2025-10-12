@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bhpxu325vkobw"]
+[gd_scene load_steps=16 format=3 uid="uid://bhpxu325vkobw"]
 
 [ext_resource type="Texture2D" uid="uid://c704nmwmiwsf5" path="res://Desktop/Background.png" id="1_d8c33"]
 [ext_resource type="Script" uid="uid://4ys4qskdne78" path="res://Desktop/desktop.gd" id="2_kfh0y"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://d0cen2x05xo0t" path="res://Desktop/ConsultConnorImage.png" id="4_kfh0y"]
 [ext_resource type="PackedScene" uid="uid://bk7d5g2uyc166" path="res://Windows/Credits/desktop_icon.tscn" id="6_d4j1b"]
 [ext_resource type="AudioStream" uid="uid://mwxyeldxfkxs" path="res://Desktop/Boot-Up.ogg" id="6_qdvnp"]
+[ext_resource type="PackedScene" uid="uid://b4ihnaxoggmsl" path="res://Windows/Doodlr/doodlr_window.tscn" id="6_yxmxw"]
 [ext_resource type="PackedScene" uid="uid://cijpwv7u7ay7p" path="res://Windows/Credits/credits_window.tscn" id="7_i5s23"]
 [ext_resource type="Texture2D" uid="uid://boebv5w4p8qc4" path="res://Desktop/TeamLogo.png" id="7_mf63n"]
+[ext_resource type="Texture2D" uid="uid://bbaxx77af50my" path="res://Desktop/doodlr.png" id="7_q0leb"]
 [ext_resource type="Texture2D" uid="uid://cylqx8h3dv37u" path="res://Desktop/TextFileImage.png" id="8_yxmxw"]
 
 [sub_resource type="Animation" id="Animation_mf63n"]
@@ -115,12 +117,22 @@ link = ExtResource("3_vxohe")
 image = ExtResource("4_kfh0y")
 label = "Consult Connor"
 
+[node name="doodlr" parent="." instance=ExtResource("2_shxmn")]
+layout_mode = 1
+offset_left = 69.0
+offset_top = 284.0
+offset_right = 101.0
+offset_bottom = 316.0
+link = ExtResource("6_yxmxw")
+image = ExtResource("7_q0leb")
+label = "Doodlr"
+
 [node name="credits" parent="." instance=ExtResource("6_d4j1b")]
 layout_mode = 0
-offset_left = 195.0
-offset_top = 260.0
-offset_right = 227.0
-offset_bottom = 292.0
+offset_left = 68.0
+offset_top = 382.0
+offset_right = 100.0
+offset_bottom = 414.0
 link = ExtResource("7_i5s23")
 image = ExtResource("8_yxmxw")
 label = "credits.txt"
@@ -134,7 +146,6 @@ libraries = {
 }
 
 [node name="FadeIn" type="ColorRect" parent="AnimationPlayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

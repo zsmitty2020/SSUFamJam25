@@ -82,8 +82,15 @@ func _on_blackoutsurvival_meta_clicked(_meta: Variant) -> void:
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("blackoutsurvival")
 		
-func _on_sahara_meta_clicked(meta: Variant) -> void:
+func _on_sahara_meta_clicked(_meta: Variant) -> void:
 	if GlobalData.open_tabs.find("Sahara")==-1:
 		var temp = preload("res://Windows/Sahara/sahara.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
 		GlobalData.open_tabs.append("Sahara")
+
+
+func _on_poppress_meta_clicked(_meta: Variant) -> void:
+	if GlobalData.open_tabs.find("poppress")==-1:
+		var temp = preload("res://Windows/Pop_Press/poppress_window.tscn").instantiate()
+		get_tree().get_root().add_child(temp)
+		GlobalData.open_tabs.append("poppress")
