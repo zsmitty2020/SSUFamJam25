@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccerxijkbdlf8"]
+[gd_scene load_steps=5 format=3 uid="uid://ccerxijkbdlf8"]
 
 [ext_resource type="Script" uid="uid://b85vyv2f5bedc" path="res://Windows/Surveys/survey.gd" id="1_qy41n"]
 [ext_resource type="PackedScene" uid="uid://dunhxatu8atam" path="res://Windows/Surveys/qlocation.tscn" id="2_12crs"]
 [ext_resource type="PackedScene" uid="uid://b43dlft2wmoya" path="res://Windows/Surveys/qagegroup.tscn" id="3_wemda"]
+[ext_resource type="AudioStream" uid="uid://bcceu4ykw8rhh" path="res://Windows/Surveys/coins.ogg" id="4_twq1n"]
 
 [node name="Survey" type="ScrollContainer"]
 anchors_preset = 15
@@ -33,3 +34,6 @@ layout_mode = 2
 [node name="Reward" type="Label" parent="CenterContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_twq1n")

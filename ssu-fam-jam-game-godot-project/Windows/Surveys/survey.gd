@@ -22,6 +22,7 @@ func finish_survey():
 		GlobalData.balance += survey_value
 		$VBoxContainer.visible = false
 		$CenterContainer/Reward.text = "You earned $" + "%.2f"%survey_value
+		$AudioStreamPlayer.play()
 		await get_tree().create_timer(5).timeout
 		finished.emit()
 		queue_free()

@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtn4mn2vvmax7"]
+[gd_scene load_steps=7 format=3 uid="uid://dtn4mn2vvmax7"]
 
 [ext_resource type="Script" uid="uid://chl1gv6a222pd" path="res://Windows/FreeJob/free_job_window.gd" id="1_2gifj"]
+[ext_resource type="AudioStream" uid="uid://bbkj2mfyk1562" path="res://Windows/FreeJob/cha-ching.ogg" id="2_qq0dd"]
+[ext_resource type="AudioStream" uid="uid://bru43ycjmhayt" path="res://Windows/FreeJob/419023__jacco18__acess-denied-buzz.mp3" id="3_en3ln"]
+[ext_resource type="AudioStream" uid="uid://cichhdmnlplvd" path="res://Windows/FreeJob/740423__anthonyrox__message-notification-4.wav" id="4_2cgkd"]
 
 [sub_resource type="Gradient" id="Gradient_2gifj"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -132,6 +135,15 @@ text = "Work Complete!
 You Earned $"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FreeJobWindow"]
+stream = ExtResource("2_qq0dd")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="FreeJobWindow"]
+stream = ExtResource("3_en3ln")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="FreeJobWindow"]
+stream = ExtResource("4_2cgkd")
 
 [connection signal="close_requested" from="." to="FreeJobWindow" method="_on_freejob_window_close_requested"]
 [connection signal="pressed" from="FreeJobWindow/VBoxContainer/FindWork" to="FreeJobWindow" method="_on_find_work_pressed"]
