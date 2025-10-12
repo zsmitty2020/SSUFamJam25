@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnitxpbh4bf8f"]
+[gd_scene load_steps=7 format=3 uid="uid://bnitxpbh4bf8f"]
 
 [ext_resource type="Script" uid="uid://bdmsjgmi1yjt6" path="res://Windows/AdView/adview_window.gd" id="1_f8uj6"]
 [ext_resource type="Texture2D" uid="uid://b5o6pngijgjk5" path="res://icon.svg" id="2_ryqhe"]
+[ext_resource type="Texture2D" uid="uid://bwdw7gxl1mo3n" path="res://Windows/AdView/bannerTop.png" id="3_6ymsn"]
 [ext_resource type="AudioStream" uid="uid://bptgcm71sm6i" path="res://Windows/AdView/324404__joedeshon__film_static_03.ogg" id="3_ml4ue"]
 
 [sub_resource type="Gradient" id="Gradient_f8uj6"]
@@ -70,7 +71,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
 texture = ExtResource("2_ryqhe")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="AdviewWindow/ImageAd"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+texture = ExtResource("3_6ymsn")
+expand_mode = 1
 
 [node name="Close" type="Button" parent="AdviewWindow/ImageAd"]
 layout_mode = 1
