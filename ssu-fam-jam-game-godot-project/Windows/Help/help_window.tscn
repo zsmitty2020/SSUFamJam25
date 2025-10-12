@@ -16,7 +16,7 @@ subpixel_positioning = 0
 [node name="CreditsWindow" type="Window"]
 oversampling_override = 1.0
 title = "Credits.txt"
-position = Vector2i(10, 30)
+position = Vector2i(10, 36)
 size = Vector2i(800, 600)
 script = ExtResource("1_e4o6a")
 
@@ -33,29 +33,39 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 392.0
-offset_bottom = 630.0
+offset_bottom = -289.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_p5ryc")
 theme_override_font_sizes/font_size = 25
-text = "!READ INCASE I FORGOT HOW TO MAKE MONEY:
+text = "!READ INCaSE I FORGOT HOW TO MAKE MONEY:
 "
+autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_p5ryc")
 theme_override_font_sizes/font_size = 25
+text = "Step 1: Open Consult Conner, the best search engine
+Step 2: Use websites to make money (fill out surveys, play test games, watch ads, gamble)
+Step 3: DO NOT LET THE COMPUTER RESTART
+Step 4: Profit :)"
+autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_p5ryc")
 theme_override_font_sizes/font_size = 25
+text = "(Optional) Step 5: Compare to last 10 times in the bank"
+autowrap_mode = 2
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
