@@ -28,7 +28,7 @@ var stocktime = 15
 var stocktimer = stocktime
 
 func _ready():
-	if ResourceLoader.exists("user://previousaccounts.tres"):
+	if ResourceLoader.exists("user://saveData.tres"):
 		previous_accounts = previous_accounts.load_save()
 	else:
 		previous_accounts.write_save()
