@@ -35,6 +35,8 @@ var art_timer = art_time
 
 var flappy_tokens = 0
 
+var slotsCredits = 0
+
 func _ready():
 	if ResourceLoader.exists("user://saveData.tres"):
 		previous_accounts = previous_accounts.load_save()
