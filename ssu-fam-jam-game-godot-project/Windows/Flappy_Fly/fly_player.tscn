@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1c0wg7e8jvj"]
+
+[ext_resource type="Script" uid="uid://djkx6ysq4je3v" path="res://Windows/Flappy_Fly/flappy_fly.gd" id="1_tlqll"]
+[ext_resource type="Texture2D" uid="uid://bshder5ju4nuu" path="res://Windows/Flappy_Fly/fly_assets/fly0.png" id="2_0ncey"]
+[ext_resource type="Texture2D" uid="uid://c14kod8hug86l" path="res://Windows/Flappy_Fly/fly_assets/fly1.png" id="3_r5qsg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7pej5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ncey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r5qsg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hitha"]
+radius = 7.018166
+
+[node name="FlyPlayer" type="CharacterBody2D"]
+position = Vector2(353, 376)
+script = ExtResource("1_tlqll")
+
+[node name="FlappyFly" type="AnimatedSprite2D" parent="."]
+rotation = -3.1415925
+scale = Vector2(1, -1.1200098)
+sprite_frames = SubResource("SpriteFrames_7pej5")
+frame = 1
+frame_progress = 0.20838818
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.1920929e-07, 0)
+rotation = -4.576124
+scale = Vector2(-1.3160949, 1.1621622)
+shape = SubResource("CircleShape2D_hitha")
+
+[connection signal="ready" from="." to="." method="_on_ready"]

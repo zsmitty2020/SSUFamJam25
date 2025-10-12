@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxsi26nmolsmi"]
+
+[ext_resource type="Script" uid="uid://wqld5qwrv5ff" path="res://Windows/Flappy_Fly/building.gd" id="1_4p7ii"]
+[ext_resource type="Texture2D" uid="uid://hfofkup0jwdj" path="res://Windows/Flappy_Fly/fly_assets/building.png" id="2_hnfgg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_el5ks"]
+size = Vector2(60, 414)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmuru"]
+size = Vector2(14, 185)
+
+[node name="building" type="Area2D"]
+position = Vector2(34, 541)
+scale = Vector2(1, 0.6799997)
+script = ExtResource("1_4p7ii")
+
+[node name="bottom" type="Sprite2D" parent="."]
+position = Vector2(0, -596.5)
+texture = ExtResource("2_hnfgg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -596.5)
+shape = SubResource("RectangleShape2D_el5ks")
+
+[node name="top" type="Sprite2D" parent="."]
+texture = ExtResource("2_hnfgg")
+flip_v = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_el5ks")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(39, -299.5)
+scale = Vector2(1.0095646, 1)
+shape = SubResource("RectangleShape2D_qmuru")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

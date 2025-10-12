@@ -1,11 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://u3kbb0rnhyd"]
+[gd_scene load_steps=13 format=3 uid="uid://u3kbb0rnhyd"]
 
 [ext_resource type="Script" uid="uid://d37dlgip2sl1p" path="res://Windows/Flappy_Fly/Flappy_Fly_Window.gd" id="1_7dtey"]
-[ext_resource type="Texture2D" uid="uid://bshder5ju4nuu" path="res://Windows/Flappy_Fly/fly_assets/fly0.png" id="1_pwww0"]
 [ext_resource type="Texture2D" uid="uid://vy538p25rpem" path="res://Windows/Flappy_Fly/fly_assets/CityBackground.png" id="2_mvl0o"]
-[ext_resource type="Texture2D" uid="uid://c14kod8hug86l" path="res://Windows/Flappy_Fly/fly_assets/fly1.png" id="2_tjeak"]
+[ext_resource type="Script" uid="uid://btttgea8qh7yp" path="res://Windows/Flappy_Fly/flappy_fly_window_2.gd" id="3_0oupv"]
 [ext_resource type="Script" uid="uid://cs04vfktth2ab" path="res://Windows/Flappy_Fly/city_background.gd" id="3_p0xni"]
-[ext_resource type="Script" uid="uid://djkx6ysq4je3v" path="res://Windows/Flappy_Fly/flappy_fly.gd" id="4_7dtey"]
+[ext_resource type="PackedScene" uid="uid://b1c0wg7e8jvj" path="res://Windows/Flappy_Fly/fly_player.tscn" id="4_7pej5"]
+[ext_resource type="PackedScene" uid="uid://dxsi26nmolsmi" path="res://Windows/Flappy_Fly/building_maker.tscn" id="4_35km8"]
+[ext_resource type="PackedScene" uid="uid://ytktq72yyowo" path="res://Windows/Flappy_Fly/ground.tscn" id="5_7dtey"]
+[ext_resource type="Script" uid="uid://tftjhk2mdh4r" path="res://Windows/Flappy_Fly/game_over.gd" id="6_hitha"]
+[ext_resource type="AudioStream" uid="uid://bcuwqpblik0kg" path="res://Windows/Flappy_Fly/fly_assets/sfx_wing.mp3" id="8_mvl0o"]
+[ext_resource type="Texture2D" uid="uid://lvhggamys75q" path="res://Windows/Flappy_Fly/fly_assets/flappy_coin.png" id="9_p0xni"]
 
 [sub_resource type="Gradient" id="Gradient_0oupv"]
 offsets = PackedFloat32Array(0, 0.9866667, 1)
@@ -14,75 +18,108 @@ colors = PackedColorArray(0, 0, 0, 1, 0.070413746, 0.15277606, 0.3733213, 1, 1, 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_5b6we"]
 gradient = SubResource("Gradient_0oupv")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hitha"]
-radius = 12.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7pej5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_pwww0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_tjeak")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Flappy_Fly" type="Window"]
 oversampling_override = 1.0
 title = "Flappy_Fly"
 position = Vector2i(0, 36)
 size = Vector2i(400, 400)
 unresizable = true
+script = ExtResource("1_7dtey")
+building_maker = ExtResource("4_35km8")
+
+[node name="FlappyFlyWindow2" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.005
+offset_left = 409.0
+offset_top = -18.999998
+offset_right = 409.0
+offset_bottom = -19.0
+grow_horizontal = 2
+rotation = 1.5721792
+scale = Vector2(1.058553, 1.2080778)
+texture = SubResource("GradientTexture1D_5b6we")
+script = ExtResource("3_0oupv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(430, 187)
+scale = Vector2(0.555, 0.555)
+texture = ExtResource("2_mvl0o")
+script = ExtResource("3_p0xni")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(-14, 182)
+scale = Vector2(0.555, 0.555)
+texture = ExtResource("2_mvl0o")
+script = ExtResource("3_p0xni")
 
 [node name="FlappyFlyWindow" type="TextureRect" parent="."]
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.005
-offset_left = 1.0
-offset_top = 408.0
-offset_right = 225.0
-offset_bottom = 408.0
+offset_left = -44.0
+offset_top = -1.0
+offset_right = 180.0
+offset_bottom = -1.0
 grow_horizontal = 2
+rotation = -0.018197894
+scale = Vector2(0.7788527, 1.0080802)
+
+[node name="FlyPlayer" parent="." instance=ExtResource("4_7pej5")]
+position = Vector2(189, 216.99998)
+rotation = -1.5692598
+scale = Vector2(1.1682792, 1.0080801)
+skew = 0.00061929226
+up_direction = Vector2(0, 1)
+slide_on_ceiling = false
+
+[node name="building_timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="ground" parent="." instance=ExtResource("5_7dtey")]
+position = Vector2(0, 408)
 rotation = -1.5692598
 scale = Vector2(0.7788527, 1.0080802)
-texture = SubResource("GradientTexture1D_5b6we")
-script = ExtResource("1_7dtey")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-texture_repeat = 2
-position = Vector2(111, 194)
-scale = Vector2(0.81284237, 0.57239896)
-texture = ExtResource("2_mvl0o")
-script = ExtResource("3_p0xni")
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.07831818
+anchor_top = 0.101028346
+anchor_right = 0.14242074
+anchor_bottom = 0.15824229
+offset_left = 10.6727295
+offset_top = 329.58865
+offset_right = 10.672726
+offset_bottom = 329.7031
+metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_repeat = 2
-position = Vector2(757, 177)
-scale = Vector2(0.81284237, 0.57239896)
-texture = ExtResource("2_mvl0o")
-script = ExtResource("3_p0xni")
+[node name="GameOver" type="CanvasLayer" parent="."]
+script = ExtResource("6_hitha")
 
-[node name="FlyPlayer" type="Area2D" parent="."]
-position = Vector2(189, 223)
-rotation = -3.1415925
-scale = Vector2(1, -1)
-script = ExtResource("4_7dtey")
-metadata/_edit_group_ = true
+[node name="RestartButton" type="Button" parent="GameOver"]
+anchors_preset = -1
+anchor_right = 0.02
+anchor_bottom = 0.02
+offset_left = 158.0
+offset_top = 155.0
+offset_right = 211.0
+offset_bottom = 178.0
+text = "quit
+"
+metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlyPlayer"]
-shape = SubResource("CircleShape2D_hitha")
+[node name="flap" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_mvl0o")
+volume_db = 1.268
 
-[node name="FlappyFly" type="AnimatedSprite2D" parent="FlyPlayer"]
-position = Vector2(1, 0)
-sprite_frames = SubResource("SpriteFrames_7pej5")
-frame = 1
-frame_progress = 0.20838818
+[node name="FlappyCoin" type="Sprite2D" parent="."]
+position = Vector2(19, 381)
+texture = ExtResource("9_p0xni")
 
-[connection signal="close_requested" from="." to="FlappyFlyWindow" method="_on_flappy_fly_close_requested"]
+[connection signal="close_requested" from="." to="FlappyFlyWindow2" method="_on_flappy_fly_close_requested"]
 [connection signal="ready" from="Sprite2D2" to="Sprite2D2" method="_on_ready"]
-[connection signal="input_event" from="FlyPlayer" to="FlyPlayer" method="_on_input_event"]
-[connection signal="ready" from="FlyPlayer" to="FlyPlayer" method="_on_ready"]
+[connection signal="timeout" from="building_timer" to="." method="_on_building_timer_timeout"]
+[connection signal="restart" from="GameOver" to="FlappyFlyWindow2" method="_on_game_over_restart"]
+[connection signal="pressed" from="GameOver/RestartButton" to="GameOver" method="_on_restart_button_pressed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bss23loirgej4"]
+
+[ext_resource type="PackedScene" uid="uid://blj5g47uwo7m0" path="res://Windows/Flappy_Fly/scenes/main.tscn" id="1_pjdqu"]
+
+[node name="FlappyFly" type="Window"]
+oversampling_override = 1.0
+size = Vector2i(400, 400)
+
+[node name="Main" parent="." instance=ExtResource("1_pjdqu")]
