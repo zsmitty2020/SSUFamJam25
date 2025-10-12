@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhpxu325vkobw"]
+[gd_scene load_steps=17 format=3 uid="uid://bhpxu325vkobw"]
 
 [ext_resource type="Texture2D" uid="uid://c704nmwmiwsf5" path="res://Desktop/Background.png" id="1_d8c33"]
 [ext_resource type="Script" uid="uid://4ys4qskdne78" path="res://Desktop/desktop.gd" id="2_kfh0y"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cijpwv7u7ay7p" path="res://Windows/Credits/credits_window.tscn" id="7_i5s23"]
 [ext_resource type="Texture2D" uid="uid://boebv5w4p8qc4" path="res://Desktop/TeamLogo.png" id="7_mf63n"]
 [ext_resource type="Texture2D" uid="uid://bbaxx77af50my" path="res://Desktop/doodlr.png" id="7_q0leb"]
+[ext_resource type="PackedScene" uid="uid://c882krxcrjn0j" path="res://Windows/Help/help_window.tscn" id="8_q0leb"]
 [ext_resource type="Texture2D" uid="uid://cylqx8h3dv37u" path="res://Desktop/TextFileImage.png" id="8_yxmxw"]
 
 [sub_resource type="Animation" id="Animation_mf63n"]
@@ -127,12 +128,22 @@ link = ExtResource("6_yxmxw")
 image = ExtResource("7_q0leb")
 label = "Doodlr"
 
+[node name="help" parent="." instance=ExtResource("2_shxmn")]
+layout_mode = 1
+offset_left = 69.0
+offset_top = 380.0
+offset_right = 101.0
+offset_bottom = 412.0
+link = ExtResource("8_q0leb")
+image = ExtResource("8_yxmxw")
+label = "help.txt"
+
 [node name="credits" parent="." instance=ExtResource("6_d4j1b")]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 382.0
-offset_right = 100.0
-offset_bottom = 414.0
+offset_left = 63.0
+offset_top = 479.0
+offset_right = 95.0
+offset_bottom = 511.0
 link = ExtResource("7_i5s23")
 image = ExtResource("8_yxmxw")
 label = "credits.txt"
@@ -146,6 +157,7 @@ libraries = {
 }
 
 [node name="FadeIn" type="ColorRect" parent="AnimationPlayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
