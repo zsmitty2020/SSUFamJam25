@@ -1,10 +1,72 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhpxu325vkobw"]
+[gd_scene load_steps=10 format=3 uid="uid://bhpxu325vkobw"]
 
 [ext_resource type="Texture2D" uid="uid://c704nmwmiwsf5" path="res://Desktop/Background.png" id="1_d8c33"]
 [ext_resource type="Script" path="res://Desktop/desktop.gd" id="2_kfh0y"]
 [ext_resource type="PackedScene" uid="uid://dgmi3cmk7hye3" path="res://Desktop/desktop_icons.tscn" id="2_shxmn"]
 [ext_resource type="PackedScene" uid="uid://dfp36yjnfafbp" path="res://Windows/Search/search_window.tscn" id="3_vxohe"]
 [ext_resource type="Texture2D" uid="uid://d0cen2x05xo0t" path="res://Desktop/ConsultConnorImage.png" id="4_kfh0y"]
+[ext_resource type="AudioStream" uid="uid://mwxyeldxfkxs" path="res://Desktop/Boot-Up.ogg" id="6_qdvnp"]
+
+[sub_resource type="Animation" id="Animation_mf63n"]
+resource_name = "Fade-In"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/FadeIn:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.1678896, 6.468072),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h8sll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/FadeIn:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2t36a"]
+_data = {
+&"Fade-In": SubResource("Animation_mf63n"),
+&"RESET": SubResource("Animation_h8sll")
+}
 
 [node name="Desktop" type="TextureRect"]
 anchors_preset = 15
@@ -24,3 +86,20 @@ offset_bottom = 225.0
 link = ExtResource("3_vxohe")
 image = ExtResource("4_kfh0y")
 label = "Consult Connor"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qdvnp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2t36a")
+}
+
+[node name="FadeIn" type="ColorRect" parent="AnimationPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
