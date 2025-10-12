@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhpxu325vkobw"]
+[gd_scene load_steps=11 format=3 uid="uid://bhpxu325vkobw"]
 
 [ext_resource type="Texture2D" uid="uid://c704nmwmiwsf5" path="res://Desktop/Background.png" id="1_d8c33"]
 [ext_resource type="Script" uid="uid://4ys4qskdne78" path="res://Desktop/desktop.gd" id="2_kfh0y"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dfp36yjnfafbp" path="res://Windows/Search/search_window.tscn" id="3_vxohe"]
 [ext_resource type="Texture2D" uid="uid://d0cen2x05xo0t" path="res://Desktop/ConsultConnorImage.png" id="4_kfh0y"]
 [ext_resource type="AudioStream" uid="uid://mwxyeldxfkxs" path="res://Desktop/Boot-Up.ogg" id="6_qdvnp"]
+[ext_resource type="Texture2D" uid="uid://boebv5w4p8qc4" path="res://Desktop/TeamLogo.png" id="7_mf63n"]
 
 [sub_resource type="Animation" id="Animation_mf63n"]
 resource_name = "Fade-In"
@@ -34,6 +35,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Logo:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.8333334, 4.073196),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="Animation" id="Animation_h8sll"]
 length = 0.001
@@ -60,6 +73,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Logo:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2t36a"]
@@ -104,3 +129,20 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_behavior_recursive = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="TextureRect" parent="AnimationPlayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -139.0
+offset_right = 196.5
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+texture = ExtResource("7_mf63n")
