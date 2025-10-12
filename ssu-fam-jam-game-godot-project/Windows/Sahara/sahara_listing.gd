@@ -22,7 +22,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func update_cost():
@@ -34,12 +34,22 @@ func update_cost():
 
 
 func _on_button_pressed() -> void:
-	if GlobalData.balance >= item_cost:
-		GlobalData.balance -= item_cost
-		GlobalData.inventory[dict_key] += dict_value
-		if !multipurchase:
-			$HBoxContainer/Button.disabled = true
-			$HBoxContainer/Button.text = "Out of Stock!"
-		item_cost = item_cost * 1.127
-		update_cost()
+	if item_name != "Convert Flappy Coins":
+		if GlobalData.balance >= item_cost:
+			GlobalData.balance -= item_cost
+			if GlobalData.inventory.has(dict_key) == false:
+				GlobalData.inventory[dict_key] = dict_value
+			else:
+				GlobalData.inventory[dict_key] += dict_value
+			if !multipurchase:
+				$HBoxContainer/Button.disabled = true
+				$HBoxContainer/Button.text = "Out of Stock!"
+			item_cost = item_cost * 1.127
+			update_cost()
+	if item_name == "Convert Flappy Coins":
+		print("AHHHH")
+		var tmp = GlobalData.flappy_tokens
+		tmp /= 100
+		GlobalData.balance += tmp
+		GlobalData.flappy_tokens = 0
 		

@@ -97,7 +97,7 @@ func _on_poppress_meta_clicked(_meta: Variant) -> void:
 
 
 func _on_flappy_fly_url_meta_clicked(_meta: Variant) -> void:
-	if GlobalData.open_tabs.find("poppress")==-1:
+	if GlobalData.open_tabs.find("Flappy_Fly")==-1:
 		var temp = preload("res://Windows/Flappy_Fly/Flappy_Fly_Window.tscn").instantiate()
 		get_tree().get_root().add_child(temp)
-		GlobalData.open_tabs.append("poppress")
+		GlobalData.open_tabs.append("Flappy_Fly")

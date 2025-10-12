@@ -106,3 +106,13 @@ func FlyPlayer_hit():
 func _on_ground_hit():
 	$FlyPlayer.falling = false
 	stop_game()
+
+
+func _on_close_requested():
+	GlobalData.open_tabs.erase("Flappy_Fly")
+	queue_free()
+
+
+func _on_restart_button_pressed():
+	GlobalData.open_tabs.erase("Flappy_Fly")
+	queue_free()

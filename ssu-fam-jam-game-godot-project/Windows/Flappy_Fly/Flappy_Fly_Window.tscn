@@ -118,8 +118,9 @@ volume_db = 1.268
 position = Vector2(19, 381)
 texture = ExtResource("9_p0xni")
 
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="close_requested" from="." to="FlappyFlyWindow2" method="_on_flappy_fly_close_requested"]
 [connection signal="ready" from="Sprite2D2" to="Sprite2D2" method="_on_ready"]
 [connection signal="timeout" from="building_timer" to="." method="_on_building_timer_timeout"]
 [connection signal="restart" from="GameOver" to="FlappyFlyWindow2" method="_on_game_over_restart"]
-[connection signal="pressed" from="GameOver/RestartButton" to="GameOver" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOver/RestartButton" to="." method="_on_restart_button_pressed"]

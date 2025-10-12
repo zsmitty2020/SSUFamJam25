@@ -3,7 +3,7 @@ extends Node
 var previous_accounts = Save.new()
 
 var inventory = {"Active Cars":0,"Total Cars":0}
-var balance:float = 0.00
+var balance:float = 2000
 var open_tabs:Array[String] = []
 
 var survey_time:float = 120
@@ -33,7 +33,7 @@ var designs = []
 var art_time = 2
 var art_timer = art_time
 
-var flappy_tokens = 0
+var flappy_tokens = 234
 
 var slotsCredits = 0
 
