@@ -216,12 +216,6 @@ text = "Money Earned: $0.00"
 
 [node name="MoneyTimer" type="Timer" parent="."]
 
-[node name="Button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "press me"
-
 [connection signal="timeout" from="BlackoutSurvivalBaseNode/blackoutCharacter/Timer" to="BlackoutSurvivalBaseNode/blackoutCharacter" method="_on_timer_timeout"]
 [connection signal="timeout" from="IceSpawner" to="." method="_on_ice_spawner_timeout"]
 [connection signal="timeout" from="MoneyTimer" to="." method="_on_money_timer_timeout"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
