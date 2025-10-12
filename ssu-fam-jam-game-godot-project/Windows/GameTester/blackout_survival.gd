@@ -63,3 +63,8 @@ func _on_money_timer_timeout():
 func _on_button_pressed():
 	#for testing
 	GlobalData.inventory.get_or_add("Controller", 1)
+
+
+func _on_close_requested():
+	GlobalData.open_tabs.erase("blackoutsurvival")
+	self.queue_free()

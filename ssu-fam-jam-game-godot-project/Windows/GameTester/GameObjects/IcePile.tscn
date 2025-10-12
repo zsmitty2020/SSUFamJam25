@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://h47lil7880aw"]
+[gd_scene load_steps=8 format=3 uid="uid://h47lil7880aw"]
 
 [ext_resource type="Script" uid="uid://dadx1dph5bro5" path="res://Windows/GameTester/GameScripts/ice_pile.gd" id="1_e0fc7"]
+[ext_resource type="PackedScene" uid="uid://c4febboc3t6dk" path="res://Windows/GameTester/GameAssets/ice_emitter.tscn" id="2_x03jo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x03jo"]
 size = Vector3(5, 5, 5)
@@ -75,6 +76,8 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1.1296573, 0, 0, 0, 1.1296573, 0, 0, 0, 1.1296573, 0, 0, 0)
 mesh = SubResource("BoxMesh_3sdwb")
 skeleton = NodePath("../../..")
+
+[node name="IceEmitter" parent="." instance=ExtResource("2_x03jo")]
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

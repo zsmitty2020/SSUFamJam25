@@ -216,6 +216,7 @@ text = "Money Earned: $0.00"
 
 [node name="MoneyTimer" type="Timer" parent="."]
 
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="timeout" from="BlackoutSurvivalBaseNode/blackoutCharacter/Timer" to="BlackoutSurvivalBaseNode/blackoutCharacter" method="_on_timer_timeout"]
 [connection signal="timeout" from="IceSpawner" to="." method="_on_ice_spawner_timeout"]
 [connection signal="timeout" from="MoneyTimer" to="." method="_on_money_timer_timeout"]
