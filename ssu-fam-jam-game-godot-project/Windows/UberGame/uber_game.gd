@@ -42,6 +42,7 @@ func _on_close_requested() -> void:
 
 func _on_buy_button_pressed() -> void:
 	if GlobalData.balance >= car_cost:
+		GlobalData.balance -= car_cost
 		GlobalData.inventory["Total Cars"] += 1
 		$NewTrip.start()
 		car_cost = car_cost * 1.127
