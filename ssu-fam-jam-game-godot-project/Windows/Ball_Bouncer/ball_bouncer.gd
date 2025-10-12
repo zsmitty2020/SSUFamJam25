@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 	$Purchase/PurchaseBounceValueButton.text = "Purchase Bounce \nValue: $" + "%.2f"%bounce_value_price
 
 func _on_ball_bouncer_close_requested() -> void:
-	GlobalData.open_tabs.erase("Ball_Bouncer")
+	GlobalData.open_tabs.erase("ballbouncer")
 	get_parent().queue_free()
 	
 func create_ball():
