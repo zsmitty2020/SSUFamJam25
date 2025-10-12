@@ -1,10 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://u3kbb0rnhyd"]
+[gd_scene load_steps=11 format=3 uid="uid://u3kbb0rnhyd"]
 
 [ext_resource type="Script" uid="uid://d37dlgip2sl1p" path="res://Windows/Flappy_Fly/Flappy_Fly_Window.gd" id="1_7dtey"]
-[ext_resource type="Texture2D" uid="uid://dcmg7h3gxyi72" path="res://Windows/Flappy_Fly/fly_assets/blue.png" id="1_7pej5"]
 [ext_resource type="Texture2D" uid="uid://bshder5ju4nuu" path="res://Windows/Flappy_Fly/fly_assets/fly0.png" id="1_pwww0"]
+[ext_resource type="Texture2D" uid="uid://vy538p25rpem" path="res://Windows/Flappy_Fly/fly_assets/CityBackground.png" id="2_mvl0o"]
 [ext_resource type="Texture2D" uid="uid://c14kod8hug86l" path="res://Windows/Flappy_Fly/fly_assets/fly1.png" id="2_tjeak"]
+[ext_resource type="Script" uid="uid://cs04vfktth2ab" path="res://Windows/Flappy_Fly/city_background.gd" id="3_p0xni"]
 [ext_resource type="Script" uid="uid://djkx6ysq4je3v" path="res://Windows/Flappy_Fly/flappy_fly.gd" id="4_7dtey"]
+
+[sub_resource type="Gradient" id="Gradient_0oupv"]
+offsets = PackedFloat32Array(0, 0.9866667, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.070413746, 0.15277606, 0.3733213, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5b6we"]
+gradient = SubResource("Gradient_0oupv")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hitha"]
 radius = 12.0
@@ -27,32 +35,54 @@ animations = [{
 oversampling_override = 1.0
 title = "Flappy_Fly"
 position = Vector2i(0, 36)
-size = Vector2i(200, 200)
+size = Vector2i(400, 400)
+unresizable = true
 
 [node name="FlappyFlyWindow" type="TextureRect" parent="."]
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.005
-offset_left = -2.0
-offset_right = 1.0
+offset_left = 1.0
+offset_top = 408.0
+offset_right = 225.0
+offset_bottom = 408.0
 grow_horizontal = 2
-texture = ExtResource("1_7pej5")
+rotation = -1.5692598
+scale = Vector2(0.7788527, 1.0080802)
+texture = SubResource("GradientTexture1D_5b6we")
 script = ExtResource("1_7dtey")
 
-[node name="FlyPlayer" type="Area2D" parent="FlappyFlyWindow"]
-position = Vector2(101, 113)
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(111, 194)
+scale = Vector2(0.81284237, 0.57239896)
+texture = ExtResource("2_mvl0o")
+script = ExtResource("3_p0xni")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(757, 177)
+scale = Vector2(0.81284237, 0.57239896)
+texture = ExtResource("2_mvl0o")
+script = ExtResource("3_p0xni")
+
+[node name="FlyPlayer" type="Area2D" parent="."]
+position = Vector2(189, 223)
+rotation = -3.1415925
+scale = Vector2(1, -1)
 script = ExtResource("4_7dtey")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlappyFlyWindow/FlyPlayer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlyPlayer"]
 shape = SubResource("CircleShape2D_hitha")
 
-[node name="FlappyFly" type="AnimatedSprite2D" parent="FlappyFlyWindow/FlyPlayer"]
+[node name="FlappyFly" type="AnimatedSprite2D" parent="FlyPlayer"]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_7pej5")
 frame = 1
 frame_progress = 0.20838818
 
 [connection signal="close_requested" from="." to="FlappyFlyWindow" method="_on_flappy_fly_close_requested"]
-[connection signal="input_event" from="FlappyFlyWindow/FlyPlayer" to="FlappyFlyWindow/FlyPlayer" method="_on_input_event"]
-[connection signal="ready" from="FlappyFlyWindow/FlyPlayer" to="FlappyFlyWindow/FlyPlayer" method="_on_ready"]
+[connection signal="ready" from="Sprite2D2" to="Sprite2D2" method="_on_ready"]
+[connection signal="input_event" from="FlyPlayer" to="FlyPlayer" method="_on_input_event"]
+[connection signal="ready" from="FlyPlayer" to="FlyPlayer" method="_on_ready"]
