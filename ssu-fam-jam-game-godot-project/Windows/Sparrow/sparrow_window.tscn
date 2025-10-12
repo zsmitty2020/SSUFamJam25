@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdps8wxwji0le"]
+[gd_scene load_steps=6 format=3 uid="uid://cdps8wxwji0le"]
 
 [ext_resource type="Script" uid="uid://bsgb5k867wo8s" path="res://Windows/Sparrow/sparrow_window.gd" id="1_7wjpe"]
 [ext_resource type="Script" uid="uid://duywaftx372jt" path="res://Windows/Sparrow/stock.gd" id="2_vl6w5"]
+[ext_resource type="AudioStream" uid="uid://mep7hiqhp62u" path="res://Windows/Sparrow/566887__lennartgreen__click-metronome-atonal-low.wav" id="3_vr0s1"]
 
 [sub_resource type="Gradient" id="Gradient_vr0s1"]
 colors = PackedColorArray(0.15294118, 0.16862746, 0.32941177, 1, 0.15294118, 0.16862746, 0.32941177, 1)
@@ -26,6 +27,9 @@ script = ExtResource("1_7wjpe")
 
 [node name="Stock" type="Line2D" parent="SparrowWindow"]
 script = ExtResource("2_vl6w5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SparrowWindow/Stock"]
+stream = ExtResource("3_vr0s1")
 
 [node name="StockTitle" type="Label" parent="SparrowWindow"]
 layout_mode = 1
