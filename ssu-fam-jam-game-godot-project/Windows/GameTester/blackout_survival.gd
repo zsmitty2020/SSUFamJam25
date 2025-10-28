@@ -38,6 +38,7 @@ func spawnIce():
 	
 func endGame():
 	cashOut()
+	GlobalData.open_tabs.erase("blackoutsurvival")
 	queue_free()
 
 func _on_ice_spawner_timeout():
