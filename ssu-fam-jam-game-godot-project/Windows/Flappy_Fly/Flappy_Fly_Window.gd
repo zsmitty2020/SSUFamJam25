@@ -41,22 +41,23 @@ func start_game():
 	$FlyPlayer.flap()
 	#start building timer
 	$building_timer.start()
+	$JumpLabel.hide()
 
 func new_game():
 	#reset variables
 	game_running = false
 	game_over = false
-	score = 0
+	score = GlobalData.flappy_tokens
 	scroll = 0
 	$ScoreLabel.text = "SCORE: " + str(score)
 	$GameOver.hide()
 	get_tree().call_group("buildings", "queue_free")
 	#generate starting buildings
 	generate_building()
-	buildings.clear()
+	reset_buildings()
 	$FlyPlayer.reset()
 
-func _process(delta):
+func _process(_delta):
 	input_check()
 	if game_running:
 		scroll += SCROLL_SPEED
@@ -76,15 +77,19 @@ func generate_building():
 	building.position.y = 400 + randi_range(-50, 80)
 	building.hit.connect(FlyPlayer_hit)
 	building.scored.connect(scored)
-	add_child(building)
+	$Building_Manager.add_child(building)
 	buildings.append(building)
+
+func reset_buildings():
+	buildings.clear()
+	for child in $Building_Manager.get_children():
+		child.queue_free()
 
 func _on_building_timer_timeout() -> void:
 	generate_building()
 	
 func scored():
 	score += 1
-	GlobalData.flappy_tokens += 1
 	$ScoreLabel.text = "SCORE: " + str(score)
 
 func check_top():
@@ -98,6 +103,7 @@ func stop_game():
 	$FlyPlayer.flying = false
 	game_running = false
 	game_over = true
+	GlobalData.flappy_tokens = score
 	
 func FlyPlayer_hit():
 	$FlyPlayer.falling = true
@@ -114,5 +120,4 @@ func _on_close_requested():
 
 
 func _on_restart_button_pressed():
-	GlobalData.open_tabs.erase("Flappy_Fly")
-	queue_free()
+	new_game()

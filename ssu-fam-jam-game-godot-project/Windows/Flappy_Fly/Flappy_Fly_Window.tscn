@@ -106,7 +106,7 @@ offset_left = 158.0
 offset_top = 155.0
 offset_right = 211.0
 offset_bottom = 178.0
-text = "quit
+text = "Restart
 "
 metadata/_edit_use_anchors_ = true
 
@@ -117,6 +117,19 @@ volume_db = 1.268
 [node name="FlappyCoin" type="Sprite2D" parent="."]
 position = Vector2(19, 381)
 texture = ExtResource("9_p0xni")
+
+[node name="Building_Manager" type="Node" parent="."]
+
+[node name="JumpLabel" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Press SPACE to fly!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="close_requested" from="." to="FlappyFlyWindow2" method="_on_flappy_fly_close_requested"]
