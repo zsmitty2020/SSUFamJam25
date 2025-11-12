@@ -7,13 +7,13 @@ func _on_pop_press_window_close_requested() -> void:
 
 func _process(_delta: float) -> void:
 	$HBoxContainer/Designs.text = "Designs Uploaded: %d"%GlobalData.designs.size()
-	var temp:int = 0
+	var temp:float = 0
 	for i in GlobalData.designs:
 		temp += i
-	$HBoxContainer/Revenue.text = "Revenue Generated: %d"%temp
+	$HBoxContainer/Revenue.text = "Revenue Generated: $%.2f"%temp
 
 
 func _on_upload_pressed() -> void:
 	if GlobalData.art_finished:
 		GlobalData.art_finished = false
-		GlobalData.designs.append(0)
+		GlobalData.designs.append(0.0)

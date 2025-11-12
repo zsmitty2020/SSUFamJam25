@@ -29,7 +29,7 @@ var stocktimer = stocktime
 
 var license_key = null
 var art_finished = false
-var designs = []
+var designs:Array[float] = []
 var art_time = 2
 var art_timer = art_time
 
@@ -74,9 +74,9 @@ func _process(delta: float) -> void:
 	art_timer -= delta
 	if art_timer < 0:
 		art_timer = art_time
-		for i in designs:
+		for i in range(designs.size()):
 			var temp = randf_range(0.01, 0.05)
-			i += temp
+			designs[i] = designs[i]+temp
 			balance += temp
 
 

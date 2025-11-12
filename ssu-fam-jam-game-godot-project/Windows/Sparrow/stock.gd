@@ -2,7 +2,7 @@ extends Line2D
 
 
 var stockpeak = 200
-var stockmin = 0.01
+var stockmin = 1.00
 
 var volatility = randf_range(0.1, 10)
 var volatility_cycle = randf_range(1, 10)
