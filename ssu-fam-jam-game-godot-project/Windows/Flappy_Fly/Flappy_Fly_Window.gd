@@ -7,7 +7,6 @@ extends Node
 var game_running : bool
 var game_over : bool
 var scroll
-var score
 const SCROLL_SPEED : int = 4
 var screen_size : Vector2i
 var ground_height : int
@@ -47,9 +46,8 @@ func new_game():
 	#reset variables
 	game_running = false
 	game_over = false
-	score = GlobalData.flappy_tokens
 	scroll = 0
-	$ScoreLabel.text = "SCORE: " + str(score)
+	$ScoreLabel.text = "SCORE: " + str(GlobalData.flappy_tokens)
 	$GameOver.hide()
 	get_tree().call_group("buildings", "queue_free")
 	#generate starting buildings
@@ -69,6 +67,8 @@ func _process(_delta):
 		#move buildings
 		for building in buildings:
 			building.position.x -= SCROLL_SPEED
+		if $FlyPlayer.position.y >= screen_size.y:
+			FlyPlayer_hit()
 #
 
 func generate_building():
@@ -89,8 +89,11 @@ func _on_building_timer_timeout() -> void:
 	generate_building()
 	
 func scored():
-	score += 1
-	$ScoreLabel.text = "SCORE: " + str(score)
+	GlobalData.flappy_tokens += 1
+	$ScoreLabel.text = "SCORE: " + str(GlobalData.flappy_tokens)
+
+func updateScore():
+	$ScoreLabel.text = "SCORE: " + str(GlobalData.flappy_tokens)
 
 func check_top():
 	if $FlyPlayer.position.y < 0:
@@ -103,7 +106,6 @@ func stop_game():
 	$FlyPlayer.flying = false
 	game_running = false
 	game_over = true
-	GlobalData.flappy_tokens = score
 	
 func FlyPlayer_hit():
 	$FlyPlayer.falling = true

@@ -47,9 +47,11 @@ func _on_button_pressed() -> void:
 			item_cost = item_cost * 1.127
 			update_cost()
 	if item_name == "Convert Flappy Coins":
-		print("AHHHH")
 		var tmp = GlobalData.flappy_tokens
-		tmp /= 100
+		tmp *= 0.25
 		GlobalData.balance += tmp
 		GlobalData.flappy_tokens = 0
+		tmp = GlobalData.open_tabs.find("Flappy_Fly")
+		if tmp != -1:
+			get_tree().get_root().get_node("/root/Flappy_Fly").updateScore()
 		
