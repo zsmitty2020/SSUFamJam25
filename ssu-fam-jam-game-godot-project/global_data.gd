@@ -41,7 +41,9 @@ var create_ball_price = 25.0
 var speed_price = 20.0
 var bounce_value_price = 75.0
 var ball_amount = 0
-
+var speed_upgrade_amount = 0
+var value_upgrade_amount = 0
+var bounce_value = 0.05
 
 
 func _ready():
