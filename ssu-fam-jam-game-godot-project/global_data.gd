@@ -37,6 +37,13 @@ var flappy_tokens = 0
 
 var slotsCredits = 0
 
+var create_ball_price = 25.0
+var speed_price = 20.0
+var bounce_value_price = 75.0
+var ball_amount = 0
+
+
+
 func _ready():
 	if ResourceLoader.exists("user://saveData.tres"):
 		previous_accounts = previous_accounts.load_save()
