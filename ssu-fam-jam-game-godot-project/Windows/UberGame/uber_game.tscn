@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ccexsg27m1vo8" path="res://Windows/UberGame/uber_game.gd" id="1_r0iro"]
 [ext_resource type="Texture2D" uid="uid://biulta4r6mjo2" path="res://Windows/UberGame/map_background.png" id="2_gia4n"]
 
-[node name="UberGame" type="Window"]
+[node name="dryft" type="Window"]
 oversampling_override = 1.0
 title = "Dryft"
 initial_position = 1

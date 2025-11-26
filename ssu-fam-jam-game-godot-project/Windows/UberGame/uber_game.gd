@@ -1,22 +1,18 @@
 extends Window
 
 var trip_cooldown:int = randi_range(5, 30)
-var listing:PackedScene = preload("res://Windows/UberGame/listed_car.tscn")
 var car_cost:float = 500.00
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.size_changed.connect(_on_viewport_size_changed)
 	_on_viewport_size_changed()
-
 	
 
 
 	if GlobalData.inventory["Total Cars"] > 0:
 		$VBoxContainer/CarsOwned.text = "Cars Owned: %d" %GlobalData.inventory["Total Cars"]
 		$NewTrip.start()
-		for i in range(1, GlobalData.inventory["Total Cars"] + 1):
-			car_cost *= 1.127
-		#print("started")
+		
 
 func _on_viewport_size_changed():
 	var viewport_size = self.size
@@ -34,6 +30,7 @@ func set_cooldown():
 
 func create_trip() -> void:
 	if GlobalData.inventory["Total Cars"] != GlobalData.inventory["Active Cars"]:
+		var listing:PackedScene = load("res://Windows/UberGame/listed_car.tscn")
 		$VBoxContainer/ScrollContainer/VBoxContainer.add_child(listing.instantiate())
 
 func _on_new_trip_timeout() -> void:
@@ -42,7 +39,10 @@ func _on_new_trip_timeout() -> void:
 	$NewTrip.start()
 	
 
-
+func update_counter() -> void:
+	$VBoxContainer/CarsOwned.text = "Cars Owned: %d" %GlobalData.inventory["Total Cars"]
+	$NewTrip.start()
+	
 
 func _on_close_requested() -> void:
 	GlobalData.open_tabs.erase("dryft")

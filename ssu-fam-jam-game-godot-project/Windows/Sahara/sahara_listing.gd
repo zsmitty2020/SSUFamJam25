@@ -8,7 +8,7 @@ extends Control
 @export var dict_value:int
 @export var multipurchase:bool = false
 
-
+signal send_update
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,7 +46,13 @@ func _on_button_pressed() -> void:
 				$HBoxContainer/Button.text = "Out of Stock!"
 			item_cost = item_cost * 1.127
 			update_cost()
-	if item_name == "Convert Flappy Coins":
+			
+			#update dryft counter
+			var tmp = GlobalData.open_tabs.find("dryft")
+			if tmp != -1:
+				get_tree().get_root().get_node("/root/dryft").update_counter()
+				
+	elif item_name == "Convert Flappy Coins":
 		var tmp = GlobalData.flappy_tokens
 		tmp *= 0.25
 		GlobalData.balance += tmp

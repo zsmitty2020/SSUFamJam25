@@ -3,7 +3,7 @@ extends Node
 var previous_accounts = Save.new()
 
 var inventory = {"Active Cars":0,"Total Cars":0}
-var balance:float = 0
+var balance:float = 100000000000
 var open_tabs:Array[String] = []
 
 var survey_time:float = 120
@@ -109,6 +109,7 @@ func reset():
 		previous_accounts.previous_accounts.remove_at(previous_accounts.previous_accounts.size()-1)
 	previous_accounts.write_save()
 	inventory = {"Active Cars":0,"Total Cars":0}
+	
 	balance = 0.0
 	open_tabs = []
 	survey_time = 120

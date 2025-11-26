@@ -10,7 +10,7 @@ func _ready() -> void:
 	$VBoxContainer/HBoxContainer/CarOptions/VBoxContainer/PaymentLabel.text = "Reward: $%d" %reward
 	$VBoxContainer/HBoxContainer/CarOptions/VBoxContainer/RideTime.text = "Ride Time: %d seconds" %duration
 	GlobalData.inventory["Active Cars"] += 1
-	$VBoxContainer/HBoxContainer/VBoxContainer/CarName.text = "Car %d" %GlobalData.inventory["Active Cars"]
+	$VBoxContainer/HBoxContainer/VBoxContainer/CarName.text = "NEW RIDE"#"Car %d" %GlobalData.inventory["Active Cars"]
 	#print(GlobalData.inventory["Active Cars"])
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,15 +24,18 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	GlobalData.balance += reward
 	#print("time out")
-	self.queue_free()
 	GlobalData.inventory["Active Cars"] -= 1
+	self.queue_free()
+	
 
 
 func _on_accept_button_pressed() -> void:
-	$Timer.start()
-	running = true
+	if not running:
+		$Timer.start()
+		running = true
 
 
 func _on_reject_button_pressed() -> void:
-	self.queue_free()
 	GlobalData.inventory["Active Cars"] -= 1
+	self.queue_free()
+	

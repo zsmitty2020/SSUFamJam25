@@ -9,6 +9,8 @@ func _ready() -> void:
 	self.size_changed.connect(_on_viewport_size_changed)
 	flappyListingButton.text = "Convert Now!"
 	_on_viewport_size_changed()
+	
+	
 
 
 func _on_viewport_size_changed():
