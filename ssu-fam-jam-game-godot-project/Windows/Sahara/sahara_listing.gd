@@ -8,7 +8,6 @@ extends Control
 @export var dict_value:int
 @export var multipurchase:bool = false
 
-signal send_update
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

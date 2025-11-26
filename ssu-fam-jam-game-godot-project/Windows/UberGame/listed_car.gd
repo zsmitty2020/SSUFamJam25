@@ -13,7 +13,7 @@ func _ready() -> void:
 	$VBoxContainer/HBoxContainer/VBoxContainer/CarName.text = "NEW RIDE"#"Car %d" %GlobalData.inventory["Active Cars"]
 	#print(GlobalData.inventory["Active Cars"])
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if running:
 		var percent = float( ($Timer.time_left / $Timer.wait_time) - 1 ) * -100
 		percent = snappedf(percent, 0.01)
