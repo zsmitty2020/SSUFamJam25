@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bi3ddgewk28mj"]
+
+[node name="Fahds" type="Window"]
+oversampling_override = 1.0
+title = "FAHDS: Fully Automated Human Detecting Software"
+size = Vector2i(800, 600)
