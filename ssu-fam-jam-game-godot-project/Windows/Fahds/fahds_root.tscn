@@ -1,6 +1,119 @@
-[gd_scene format=3 uid="uid://bi3ddgewk28mj"]
+[gd_scene load_steps=4 format=3 uid="uid://bi3ddgewk28mj"]
+
+[ext_resource type="Texture2D" uid="uid://ba4gum6rdkjud" path="res://Windows/Fahds/FahdsAssets/Bicycle.png" id="1_apl8w"]
+
+[sub_resource type="Gradient" id="Gradient_rrk65"]
+offsets = PackedFloat32Array(0.99088836)
+colors = PackedColorArray(0.5330367, 0.5330367, 0.5330367, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_apl8w"]
+gradient = SubResource("Gradient_rrk65")
 
 [node name="Fahds" type="Window"]
 oversampling_override = 1.0
 title = "FAHDS: Fully Automated Human Detecting Software"
+position = Vector2i(0, 36)
 size = Vector2i(800, 600)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_apl8w")
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/CenterContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+text = "Earn $0.03 for Each Bicycle You Select"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button2" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button3" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button4" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button2" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button3" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button4" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TextureRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button2" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button3" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button4" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TextureRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button2" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button3" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
+
+[node name="Button4" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+icon = ExtResource("1_apl8w")
